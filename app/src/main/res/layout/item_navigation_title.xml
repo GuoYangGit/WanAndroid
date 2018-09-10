@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="presenter"
+            type="com.guoyang.common.helper.recyclerview.ItemClickPresenter"/>
+
+        <variable
+            name="item"
+            type="com.guoyang.wanandroid.mvvm.viewmodel.NavigationItemTitleViewModel"/>
+
+    </data>
+
+    <TextView
+        android:id="@+id/item_title_tv"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:onClick="@{(v)->presenter.onItemClick(v,item)}"
+        android:text="@{item.title}"/>
+</layout>

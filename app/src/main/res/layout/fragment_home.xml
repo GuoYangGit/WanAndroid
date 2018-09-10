@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="listener"
+            type="com.guoyang.common.helper.listener.Listener"/>
+
+        <variable
+            name="listListener"
+            type="com.guoyang.common.helper.listener.ListListener"/>
+
+        <variable
+            name="vm"
+            type="com.guoyang.wanandroid.mvvm.viewmodel.HomeViewModel"/>
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolBar_height"
+            android:background="@drawable/bg_toolbar"
+            android:padding="15dp"
+            app:contentInsetStart="0dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="首页"
+                android:textColor="@color/white"
+                android:textSize="18sp"/>
+
+            <ImageView
+                android:id="@+id/search_iv"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="right"
+                android:onClick="@{(v)->listener.onClick(v)}"
+                android:src="@mipmap/icon_search"/>
+
+        </android.support.v7.widget.Toolbar>
+
+        <com.classic.common.MultipleStatusView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:status="@{vm.pageState}">
+
+            <com.scwang.smartrefresh.layout.SmartRefreshLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:onRefresh="@{listListener}"
+                app:refreshing="@{vm.listState}">
+
+                <android.support.design.widget.CoordinatorLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.design.widget.AppBarLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null">
+
+                        <com.youth.banner.Banner
+                            android:id="@+id/banner"
+                            android:layout_width="match_parent"
+                            android:layout_height="180dp"
+                            app:bannerImages="@{vm.bannerImages}"
+                            app:bannerTitles="@{vm.bannerTitles}"
+                            app:layout_scrollFlags="scroll"/>
+                    </android.support.design.widget.AppBarLayout>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+                </android.support.design.widget.CoordinatorLayout>
+            </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+        </com.classic.common.MultipleStatusView>
+    </LinearLayout>
+
+</layout>
