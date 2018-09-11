@@ -9,10 +9,10 @@ import com.guoyang.easymvvm.helper.annotation.PageStateType
 import com.guoyang.easymvvm.helper.extens.bindLifeCycle
 import com.guoyang.easymvvm.helper.extens.set
 import com.guoyang.easymvvm.helper.extens.toastFail
-import com.guoyang.easymvvm.helper.listener.ListListener
-import com.guoyang.easymvvm.helper.recyclerview.ItemClickPresenter
-import com.guoyang.easymvvm.helper.recyclerview.adapter.SingleTypeAdapter
-import com.guoyang.easymvvm.helper.recyclerview.animators.ScaleInItemAnimator
+import com.guoyang.easymvvm.helper.listener.RefreshPresenter
+import com.guoyang.commonres.view.recyclerview.ItemClickPresenter
+import com.guoyang.commonres.view.recyclerview.adapter.SingleTypeAdapter
+import com.guoyang.commonres.view.recyclerview.animators.ScaleInItemAnimator
 import com.guoyang.wanandroid.R
 import com.guoyang.wanandroid.databinding.FragmentHomeBinding
 import com.guoyang.wanandroid.mvvm.view.activity.SearchActivity
@@ -38,7 +38,7 @@ import com.gyf.barlibrary.ImmersionBar
  * QQ:352391291
  */
 
-class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(), ListListener, ItemClickPresenter<ArticlesItemModel> {
+class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(), RefreshPresenter, ItemClickPresenter<ArticlesItemModel> {
 
     override fun onItemClick(v: View, item: ArticlesItemModel) {
         val intent = Intent(mContext, WebActivity::class.java)
@@ -70,8 +70,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(), ListLis
         ImmersionBar
                 .setTitleBar(activity, mBinding.toolbar)
         mBinding.run {
-            listListener = this@HomeFragment
-            listener = this@HomeFragment
+            refreshPresenter = this@HomeFragment
+            clickPresenter = this@HomeFragment
             recyclerView.run {
                 this.layoutManager = LinearLayoutManager(mContext)
                 this.adapter = mAdapter

@@ -9,7 +9,7 @@
 
         <variable
             name="presenter"
-            type="com.guoyang.easymvvm.helper.recyclerview.ItemClickPresenter"/>
+            type="com.guoyang.commonres.view.recyclerview.ItemClickPresenter"/>
 
         <variable
             name="item"
@@ -44,7 +44,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@{item.author}"
-                    android:textColor="@color/colorPrimary"/>
+                    android:textColor="@color/public_colorPrimary"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -55,7 +55,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@{item.niceDate}"
-                    android:textColor="@color/colorPrimary"/>
+                    android:textColor="@color/public_colorPrimary"/>
             </LinearLayout>
 
             <TextView
@@ -75,13 +75,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@{item.chapterName}"
-                    android:textColor="@color/colorPrimary"/>
+                    android:textColor="@color/public_colorPrimary"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@{TextUtils.isEmpty(item.superChapterName)?item.superChapterName:'/'+item.superChapterName}"
-                    android:textColor="@color/colorPrimary"/>
+                    android:textColor="@color/public_colorPrimary"/>
             </LinearLayout>
         </LinearLayout>
     </android.support.v7.widget.CardView>

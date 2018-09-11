@@ -1,0 +1,45 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode rootProject.ext.android["versionCode"]
+        versionName rootProject.ext.android["versionName"]
+
+    }
+    dataBinding {
+        enabled = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    resourcePrefix "public_" //给 Module 内的资源名增加前缀, 避免资源名冲突
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation rootProject.ext.dependencies["kotlin"]
+    api project(':commonsdk')
+
+    api rootProject.ext.dependencies["cardview-v7"]
+    api rootProject.ext.dependencies["SmartRefreshLayout"]
+    api rootProject.ext.dependencies["bottomnavigation"]
+    api rootProject.ext.dependencies["status-view"]
+    api rootProject.ext.dependencies["agentweb"]
+    api rootProject.ext.dependencies["flowlayout"]
+    api rootProject.ext.dependencies["immersionbar"]
+    api rootProject.ext.dependencies["banner"]
+    api rootProject.ext.dependencies["contourview"]
+    api rootProject.ext.dependencies["circleimageview"]
+    api rootProject.ext.dependencies["EasyPopup"]
+}

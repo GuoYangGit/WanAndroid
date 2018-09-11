@@ -7,7 +7,7 @@ import com.guoyang.wanandroid.mvvm.viewmodel.ToolViewModel
 
 import com.guoyang.wanandroid.R
 import com.guoyang.wanandroid.databinding.FragmentToolBinding
-import com.guoyang.wanandroid.helper.BindingFlowAdapter
+import com.guoyang.commonres.view.adapter.BindingFlowAdapter
 import com.guoyang.wanandroid.mvvm.view.activity.SearchActivity
 import com.guoyang.wanandroid.mvvm.view.activity.WebActivity
 import com.gyf.barlibrary.ImmersionBar
@@ -51,24 +51,27 @@ class ToolFragment : BaseFragment<FragmentToolBinding, ToolViewModel>() {
     override fun initView() {
         ImmersionBar
                 .setTitleBar(activity, mBinding.toolbar)
-        mBinding.apiUrlFlow.run {
-            adapter = mApiUrlAdapter
-            setOnTagClickListener { _, position, _ ->
-                val intent = Intent(mContext, WebActivity::class.java)
-                intent.putExtra(WebActivity.URL, mViewModel.observableWebUrl[position].link)
-                intent.putExtra(WebActivity.TITLE, mViewModel.observableWebUrl[position].title)
-                mContext.startActivity(intent)
-                return@setOnTagClickListener true
-            }
-        }
 
-        mBinding.hotSearchFlow.run {
-            adapter = mHotSearchAdapter
-            setOnTagClickListener { _, position, _ ->
-                val intent = Intent(mContext, SearchActivity::class.java)
-                intent.putExtra(SearchActivity.SEARCH_MSG, mViewModel.observableHotSearch[position].title)
-                mContext.startActivity(intent)
-                return@setOnTagClickListener true
+        mBinding.run {
+            apiUrlFlow.run {
+                adapter = mApiUrlAdapter
+                setOnTagClickListener { _, position, _ ->
+                    val intent = Intent(mContext, WebActivity::class.java)
+                    intent.putExtra(WebActivity.URL, mViewModel.observableWebUrl[position].link)
+                    intent.putExtra(WebActivity.TITLE, mViewModel.observableWebUrl[position].title)
+                    mContext.startActivity(intent)
+                    return@setOnTagClickListener true
+                }
+            }
+
+            hotSearchFlow.run {
+                adapter = mHotSearchAdapter
+                setOnTagClickListener { _, position, _ ->
+                    val intent = Intent(mContext, SearchActivity::class.java)
+                    intent.putExtra(SearchActivity.SEARCH_MSG, mViewModel.observableHotSearch[position].title)
+                    mContext.startActivity(intent)
+                    return@setOnTagClickListener true
+                }
             }
         }
     }

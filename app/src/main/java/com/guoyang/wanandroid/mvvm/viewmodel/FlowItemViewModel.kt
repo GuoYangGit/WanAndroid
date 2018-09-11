@@ -1,6 +1,6 @@
 package com.guoyang.wanandroid.mvvm.viewmodel
 
-import com.guoyang.wanandroid.helper.ColorUtils
+import com.guoyang.commonsdk.utils.ColorUtils
 
 
 /***

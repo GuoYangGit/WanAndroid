@@ -17,8 +17,8 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/toolBar_height"
-            android:background="@drawable/bg_toolbar"
+            android:layout_height="@dimen/public_toolBar_height"
+            android:background="@drawable/public_bg_toolbar"
             app:contentInsetStart="0dp">
 
             <TextView
@@ -34,11 +34,11 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:background="@color/gray_color"
+            android:background="@color/public_gray_color"
             android:gravity="center_vertical"
             android:paddingLeft="10dp"
             android:text="搜索热词"
-            android:textColor="@color/black_color"
+            android:textColor="@color/public_black_color"
             android:textSize="16sp"/>
 
         <com.zhy.view.flowlayout.TagFlowLayout
@@ -49,11 +49,11 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:background="@color/gray_color"
+            android:background="@color/public_gray_color"
             android:gravity="center_vertical"
             android:paddingLeft="10dp"
             android:text="常用网址"
-            android:textColor="@color/black_color"
+            android:textColor="@color/public_black_color"
             android:textSize="16sp"/>
 
         <com.zhy.view.flowlayout.TagFlowLayout

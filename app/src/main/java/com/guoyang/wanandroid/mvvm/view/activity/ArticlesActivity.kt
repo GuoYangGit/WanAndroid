@@ -10,17 +10,17 @@ import com.guoyang.easymvvm.helper.annotation.PageStateType
 import com.guoyang.easymvvm.helper.extens.bindLifeCycle
 import com.guoyang.easymvvm.helper.extens.set
 import com.guoyang.easymvvm.helper.extens.toastFail
-import com.guoyang.easymvvm.helper.listener.ListListener
-import com.guoyang.easymvvm.helper.recyclerview.ItemClickPresenter
-import com.guoyang.easymvvm.helper.recyclerview.adapter.SingleTypeAdapter
-import com.guoyang.easymvvm.helper.recyclerview.animators.ScaleInItemAnimator
+import com.guoyang.easymvvm.helper.listener.RefreshPresenter
+import com.guoyang.commonres.view.recyclerview.ItemClickPresenter
+import com.guoyang.commonres.view.recyclerview.adapter.SingleTypeAdapter
+import com.guoyang.commonres.view.recyclerview.animators.ScaleInItemAnimator
 import com.guoyang.wanandroid.mvvm.viewmodel.ArticlesViewModel
 
 import com.guoyang.wanandroid.R
 import com.guoyang.wanandroid.databinding.ActivityArticlesBinding
 import com.guoyang.wanandroid.mvvm.viewmodel.ArticlesItemModel
 
-class ArticlesActivity : BaseActivity<ActivityArticlesBinding, ArticlesViewModel>(), ListListener, ItemClickPresenter<ArticlesItemModel> {
+class ArticlesActivity : BaseActivity<ActivityArticlesBinding, ArticlesViewModel>(), RefreshPresenter, ItemClickPresenter<ArticlesItemModel> {
     override fun loadData(isRefresh: Boolean) {
         loadVMData(isRefresh)
     }
@@ -51,10 +51,12 @@ class ArticlesActivity : BaseActivity<ActivityArticlesBinding, ArticlesViewModel
     override fun initView() {
         mId = intent.getIntExtra(ARTICLES_ID, 0)
         findViewById<TextView>(R.id.toolbar_title).text = intent.getStringExtra(ARTICLES_TITLE)
-        mBinding.listListener = this
-        mBinding.recyclerView.run {
-            this.layoutManager = LinearLayoutManager(this@ArticlesActivity)
-            this.adapter = mAdapter
+        mBinding.run {
+            refreshPresenter = this@ArticlesActivity
+            recyclerView.run {
+                this.layoutManager = LinearLayoutManager(this@ArticlesActivity)
+                this.adapter = mAdapter
+            }
         }
     }
 

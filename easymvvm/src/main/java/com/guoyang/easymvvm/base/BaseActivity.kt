@@ -9,7 +9,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.guoyang.easymvvm.BR
-import com.guoyang.easymvvm.helper.listener.Listener
+import com.guoyang.easymvvm.helper.listener.ClickPresenter
 import dagger.android.AndroidInjection
 import javax.inject.Inject
 
@@ -30,7 +30,7 @@ import javax.inject.Inject
  * QQ:352391291
  */
 
-abstract class BaseActivity<B : ViewDataBinding, V : ViewModel> : AppCompatActivity(), IView, Listener {
+abstract class BaseActivity<B : ViewDataBinding, V : ViewModel> : AppCompatActivity(), IView, ClickPresenter {
     protected lateinit var mBinding: B
     @Inject
     protected lateinit var mViewModel: V

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="public_colorPrimary">#783AFF</color>
+    <color name="public_colorPrimaryDark">#303F9F</color>
+    <color name="public_colorAccent">#FF4081</color>
+
+    <color name="public_white_color">#FFFFFF</color>
+    <color name="public_black_color">#1C1C1C</color>
+    <color name="public_gray_color">#F5F5F5</color>
+
+    <color name="public_startcolor">#50C81AFA</color>
+    <color name="public_endcolor">#907529FD</color>
+    <color name="public_backcolor">#FF4081</color>
+</resources>

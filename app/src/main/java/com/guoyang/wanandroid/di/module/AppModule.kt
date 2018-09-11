@@ -2,8 +2,8 @@ package com.guoyang.wanandroid.di.module
 
 import android.app.Application
 import com.guoyang.easymvvm.helper.network.NetMgr
-import com.guoyang.wanandroid.Constants
-import com.guoyang.wanandroid.helper.BaseNetProvider
+import com.guoyang.commonsdk.Constants
+import com.guoyang.commonsdk.net.BaseNetProvider
 import com.guoyang.wanandroid.mvvm.model.remote.ApiService
 import dagger.Module
 import dagger.Provides

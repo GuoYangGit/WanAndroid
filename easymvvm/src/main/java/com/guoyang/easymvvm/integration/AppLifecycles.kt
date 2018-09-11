@@ -22,9 +22,9 @@ import android.content.Context
 
 interface AppLifecycles {
 
-    abstract fun attachBaseContext(base: Context)
+    fun attachBaseContext(base: Context)
 
-    abstract fun onCreate(application: Application)
+    fun onCreate(application: Application)
 
-    abstract fun onTerminate(application: Application)
+    fun onTerminate(application: Application)
 }

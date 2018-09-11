@@ -5,12 +5,12 @@
     <data>
 
         <variable
-            name="listener"
-            type="com.guoyang.easymvvm.helper.listener.Listener"/>
+            name="clickPresenter"
+            type="com.guoyang.easymvvm.helper.listener.ClickPresenter"/>
 
         <variable
-            name="listListener"
-            type="com.guoyang.easymvvm.helper.listener.ListListener"/>
+            name="refreshPresenter"
+            type="com.guoyang.easymvvm.helper.listener.RefreshPresenter"/>
 
         <variable
             name="vm"
@@ -27,8 +27,8 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/toolBar_height"
-            android:background="@drawable/bg_toolbar"
+            android:layout_height="@dimen/public_toolBar_height"
+            android:background="@drawable/public_bg_toolbar"
             android:padding="15dp"
             app:contentInsetStart="0dp">
 
@@ -45,7 +45,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_gravity="right"
-                android:onClick="@{(v)->listener.onClick(v)}"
+                android:onClick="@{(v)->clickPresenter.onClick(v)}"
                 android:src="@mipmap/icon_search"/>
 
         </android.support.v7.widget.Toolbar>
@@ -58,7 +58,7 @@
             <com.scwang.smartrefresh.layout.SmartRefreshLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:onRefresh="@{listListener}"
+                app:onRefresh="@{refreshPresenter}"
                 app:refreshing="@{vm.listState}">
 
                 <android.support.design.widget.CoordinatorLayout

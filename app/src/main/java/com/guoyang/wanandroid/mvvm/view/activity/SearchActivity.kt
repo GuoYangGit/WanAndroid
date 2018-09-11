@@ -10,17 +10,17 @@ import com.guoyang.easymvvm.base.BaseActivity
 import com.guoyang.easymvvm.helper.annotation.PageStateType
 import com.guoyang.easymvvm.helper.extens.set
 import com.guoyang.easymvvm.helper.extens.toastFail
-import com.guoyang.easymvvm.helper.listener.ListListener
-import com.guoyang.easymvvm.helper.recyclerview.ItemClickPresenter
-import com.guoyang.easymvvm.helper.recyclerview.adapter.SingleTypeAdapter
-import com.guoyang.easymvvm.helper.recyclerview.animators.ScaleInItemAnimator
+import com.guoyang.easymvvm.helper.listener.RefreshPresenter
+import com.guoyang.commonres.view.recyclerview.ItemClickPresenter
+import com.guoyang.commonres.view.recyclerview.adapter.SingleTypeAdapter
+import com.guoyang.commonres.view.recyclerview.animators.ScaleInItemAnimator
 import com.guoyang.wanandroid.mvvm.viewmodel.SearchViewModel
 
 import com.guoyang.wanandroid.R
 import com.guoyang.wanandroid.databinding.ActivitySearchBinding
 import com.guoyang.wanandroid.mvvm.viewmodel.ArticlesItemModel
 
-class SearchActivity : BaseActivity<ActivitySearchBinding, SearchViewModel>(), ListListener, ItemClickPresenter<ArticlesItemModel> {
+class SearchActivity : BaseActivity<ActivitySearchBinding, SearchViewModel>(), RefreshPresenter, ItemClickPresenter<ArticlesItemModel> {
     private var searchMsg: String = ""
     private val MIN_DELAY_TIME = 3000
     private var lastSearchTime: Long = 0
@@ -51,10 +51,10 @@ class SearchActivity : BaseActivity<ActivitySearchBinding, SearchViewModel>(), L
 
     override fun initView() {
         mBinding.run {
-            listListener = this@SearchActivity
+            refreshPresenter = this@SearchActivity
             recyclerView.run {
-                this.layoutManager = LinearLayoutManager(this@SearchActivity)
-                this.adapter = mAdapter
+                layoutManager = LinearLayoutManager(this@SearchActivity)
+                adapter = mAdapter
             }
             editText.addTextChangedListener(object : TextWatcher {
                 override fun afterTextChanged(s: Editable?) {}

@@ -30,17 +30,9 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation rootProject.ext.dependencies["kotlin"]
-    implementation project(':easymvvm')
+    api project(':commonres')
     implementation project(':smileview')
-    api rootProject.ext.dependencies["bottomnavigation"]
-    api rootProject.ext.dependencies["status-view"]
-    api rootProject.ext.dependencies["agentweb"]
-    api rootProject.ext.dependencies["flowlayout"]
-    api rootProject.ext.dependencies["immersionbar"]
-    api rootProject.ext.dependencies["banner"]
-    api rootProject.ext.dependencies["contourview"]
-    api rootProject.ext.dependencies["circleimageview"]
-    api rootProject.ext.dependencies["EasyPopup"]
+
     kapt rootProject.ext.dependencies["dagger2-compiler"]
     kapt rootProject.ext.dependencies["dagger2-android-processor"]
     //test

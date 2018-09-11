@@ -6,17 +6,17 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.guoyang.easymvvm.base.BaseFragment
 import com.guoyang.easymvvm.helper.extens.toastFail
-import com.guoyang.easymvvm.helper.recyclerview.ItemClickPresenter
-import com.guoyang.easymvvm.helper.recyclerview.ItemDecorator
-import com.guoyang.easymvvm.helper.recyclerview.adapter.BindingViewHolder
-import com.guoyang.easymvvm.helper.recyclerview.adapter.SingleTypeAdapter
-import com.guoyang.easymvvm.helper.recyclerview.divider.RecyclerViewDivider
+import com.guoyang.commonres.view.recyclerview.ItemClickPresenter
+import com.guoyang.commonres.view.recyclerview.ItemDecorator
+import com.guoyang.commonres.view.recyclerview.adapter.BindingViewHolder
+import com.guoyang.commonres.view.recyclerview.adapter.SingleTypeAdapter
+import com.guoyang.commonres.view.recyclerview.divider.RecyclerViewDivider
 import com.guoyang.wanandroid.mvvm.viewmodel.NavigationViewModel
 
 import com.guoyang.wanandroid.R
 import com.guoyang.wanandroid.databinding.FragmentNavigationBinding
 import com.guoyang.wanandroid.databinding.ItemNavigationFlowBinding
-import com.guoyang.wanandroid.helper.BindingFlowAdapter
+import com.guoyang.commonres.view.adapter.BindingFlowAdapter
 import com.guoyang.wanandroid.mvvm.view.activity.ArticlesActivity
 import com.guoyang.wanandroid.mvvm.viewmodel.NavigationItemTitleViewModel
 import com.gyf.barlibrary.ImmersionBar
@@ -80,15 +80,17 @@ class NavigationFragment : BaseFragment<FragmentNavigationBinding, NavigationVie
     override fun initView() {
         ImmersionBar
                 .setTitleBar(activity, mBinding.toolbar)
-        mBinding.titleRv.run {
-            this.layoutManager = LinearLayoutManager(mContext)
-            this.adapter = mTitleAdapter
-            this.addItemDecoration(RecyclerViewDivider.builder().build())
-        }
-        mBinding.flowRv.run {
-            this.layoutManager = LinearLayoutManager(mContext)
-            this.adapter = mFlowRvAdapter
-            this.addItemDecoration(RecyclerViewDivider.builder().build())
+        mBinding.run {
+            titleRv.run {
+                layoutManager = LinearLayoutManager(mContext)
+                adapter = mTitleAdapter
+                addItemDecoration(RecyclerViewDivider.builder().build())
+            }
+            flowRv.run {
+                layoutManager = LinearLayoutManager(mContext)
+                adapter = mFlowRvAdapter
+                addItemDecoration(RecyclerViewDivider.builder().build())
+            }
         }
     }
 

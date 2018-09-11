@@ -33,7 +33,7 @@ class MyFragment : BaseFragment<FragmentMyBinding, MyViewModel>() {
     private val scorePopup: EasyPopup by lazy {
         EasyPopup.create()
                 .setContentView(mContext, R.layout.pop_score)
-                .setAnimationStyle(R.style.BottomPopAnim)
+                .setAnimationStyle(R.style.public_BottomPopAnim)
                 //是否允许点击PopupWindow之外的地方消失
                 .setFocusAndOutsideEnable(true)
                 //允许背景变暗
@@ -56,7 +56,7 @@ class MyFragment : BaseFragment<FragmentMyBinding, MyViewModel>() {
     override fun initView() {
         ImmersionBar
                 .setTitleBar(activity, mBinding.toolbar)
-        mBinding.listener = this
+        mBinding.clickPresenter = this
     }
 
     override fun initData() {

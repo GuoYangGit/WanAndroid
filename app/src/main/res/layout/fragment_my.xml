@@ -9,8 +9,8 @@
             type="com.guoyang.wanandroid.mvvm.viewmodel.MyViewModel"/>
 
         <variable
-            name="listener"
-            type="com.guoyang.easymvvm.helper.listener.Listener"/>
+            name="clickPresenter"
+            type="com.guoyang.easymvvm.helper.listener.ClickPresenter"/>
     </data>
 
     <FrameLayout
@@ -26,14 +26,14 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:background="@drawable/bg_toolbar">
+                android:background="@drawable/public_bg_toolbar">
 
                 <com.ocnyang.contourview.ContourView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:shader_endcolor="@color/endcolor"
+                    app:shader_endcolor="@color/public_endcolor"
                     app:shader_mode="RadialGradient"
-                    app:shader_startcolor="@color/startcolor"
+                    app:shader_startcolor="@color/public_startcolor"
                     app:shader_style="LeftToBottom"/>
 
                 <de.hdodenhof.circleimageview.CircleImageView
@@ -76,8 +76,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right|bottom"
             android:layout_margin="15dp"
-            android:onClick="@{(v)->listener.onClick(v)}"
+            android:onClick="@{(v)->clickPresenter.onClick(v)}"
             android:src="@mipmap/icon_score"
-            app:backgroundTint="@color/colorPrimary"/>
+            app:backgroundTint="@color/public_colorPrimary"/>
     </FrameLayout>
 </layout>

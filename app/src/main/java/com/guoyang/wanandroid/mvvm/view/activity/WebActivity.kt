@@ -1,5 +1,6 @@
 package com.guoyang.wanandroid.mvvm.view.activity
 
+import android.annotation.SuppressLint
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.guoyang.easymvvm.base.BaseActivity
@@ -51,17 +52,20 @@ class WebActivity : BaseActivity<ActivityWebBinding, WebViewModel>() {
     override fun initData() {
     }
 
+    @SuppressLint("MissingSuperCall")
     override fun onPause() {
         mAgentWeb?.webLifeCycle?.onPause()
         super.onPause()
 
     }
 
+    @SuppressLint("MissingSuperCall")
     override fun onResume() {
         mAgentWeb?.webLifeCycle?.onResume()
         super.onResume()
     }
 
+    @SuppressLint("MissingSuperCall")
     override fun onDestroy() {
         mAgentWeb?.webLifeCycle?.onDestroy()
         super.onDestroy()

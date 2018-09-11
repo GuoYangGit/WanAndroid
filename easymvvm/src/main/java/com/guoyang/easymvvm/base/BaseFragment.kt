@@ -12,7 +12,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.guoyang.easymvvm.BR
-import com.guoyang.easymvvm.helper.listener.Listener
+import com.guoyang.easymvvm.helper.listener.ClickPresenter
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
@@ -33,7 +33,7 @@ import javax.inject.Inject
  * QQ:352391291
  */
 
-abstract class BaseFragment<B : ViewDataBinding, V : ViewModel> : Fragment(), IView, Listener {
+abstract class BaseFragment<B : ViewDataBinding, V : ViewModel> : Fragment(), IView, ClickPresenter {
     protected lateinit var mContext: Context
     protected lateinit var mBinding: B
     protected lateinit var mViewModel: V

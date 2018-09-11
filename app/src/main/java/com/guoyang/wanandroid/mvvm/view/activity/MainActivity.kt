@@ -4,6 +4,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentStatePagerAdapter
 import com.ashokvarma.bottomnavigation.BottomNavigationBar
 import com.ashokvarma.bottomnavigation.BottomNavigationItem
+import com.guoyang.easymvvm.adapter.AbsViewPageAdapter
 import com.guoyang.easymvvm.base.BaseActivity
 import com.guoyang.wanandroid.mvvm.viewmodel.MainViewModel
 import com.guoyang.wanandroid.R
@@ -44,7 +45,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(), HasSupp
     private lateinit var fragmentAdapter: FragmentStatePagerAdapter
 
     override fun initView() {
-        fragmentAdapter = object : com.guoyang.easymvvm.adapter.AbsViewPageAdapter(supportFragmentManager, arrayOf("首页", "导航", "最热", "我的")) {
+        fragmentAdapter = object : AbsViewPageAdapter(supportFragmentManager, arrayOf("首页", "导航", "最热", "我的")) {
             override fun getItem(position: Int): Fragment? {
                 if (list[position] == null) {
                     list[position] = (return when (position) {
@@ -58,29 +59,31 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(), HasSupp
                 return list[position]
             }
         }
-        mBinding.viewPager.adapter = fragmentAdapter
-        mBinding.bottomNavigation
-                .setMode(BottomNavigationBar.MODE_FIXED)
-                .setActiveColor(R.color.colorPrimary)
-                .setInActiveColor(R.color.black_color)
-                .setBarBackgroundColor(R.color.white_color)
-                .addItem(BottomNavigationItem(R.mipmap.icon_home, "首页"))
-                .addItem(BottomNavigationItem(R.mipmap.icon_navigation, "导航"))
-                .addItem(BottomNavigationItem(R.mipmap.icon_hot, "最热"))
-                .addItem(BottomNavigationItem(R.mipmap.icon_my, "我的"))
-                .initialise()
-        mBinding.bottomNavigation.setTabSelectedListener(object : BottomNavigationBar.OnTabSelectedListener {
-            override fun onTabReselected(position: Int) {
-            }
+        mBinding.run {
+            viewPager.adapter = fragmentAdapter
+            bottomNavigation
+                    .setMode(BottomNavigationBar.MODE_FIXED)
+                    .setActiveColor(R.color.public_colorPrimary)
+                    .setInActiveColor(R.color.public_black_color)
+                    .setBarBackgroundColor(R.color.public_white_color)
+                    .addItem(BottomNavigationItem(R.mipmap.icon_home, "首页"))
+                    .addItem(BottomNavigationItem(R.mipmap.icon_navigation, "导航"))
+                    .addItem(BottomNavigationItem(R.mipmap.icon_hot, "最热"))
+                    .addItem(BottomNavigationItem(R.mipmap.icon_my, "我的"))
+                    .setTabSelectedListener(object : BottomNavigationBar.OnTabSelectedListener {
+                        override fun onTabReselected(position: Int) {
+                        }
 
-            override fun onTabUnselected(position: Int) {
-            }
+                        override fun onTabUnselected(position: Int) {
+                        }
 
-            override fun onTabSelected(position: Int) {
-                mBinding.viewPager.setCurrentItem(position, false)
-            }
+                        override fun onTabSelected(position: Int) {
+                            viewPager.setCurrentItem(position, false)
+                        }
 
-        })
+                    })
+                    .initialise()
+        }
     }
 
     override fun initData() {

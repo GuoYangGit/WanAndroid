@@ -16,7 +16,7 @@ ext {
             dagger2SdkVersion       : "2.16",
             glideSdkVersion         : "3.7.0",
             lifeVersion             : "1.1.1",
-            kotlin_version          : "1.2.30",
+            kotlin_version          : "1.2.50",
     ]
 
     dependencies = [
@@ -76,6 +76,10 @@ ext {
             "contourview"                       : "com.ocnyang:contourview:1.0.0",
             "circleimageview"                   : "de.hdodenhof:circleimageview:2.2.0",
             "EasyPopup"                         : "com.github.zyyoona7:EasyPopup:1.1.2",
+
+            //tools
+            "arouter"                           : "com.alibaba:arouter-api:1.3.1",
+            "arouter-compiler"                  : "com.alibaba:arouter-compiler:1.1.4",
 
             //test
             "junit"                             : "junit:junit:4.12",

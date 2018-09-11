@@ -3,7 +3,7 @@ package com.guoyang.wanandroid.mvvm.viewmodel
 import android.databinding.ObservableArrayList
 import com.guoyang.easymvvm.base.BaseViewModel
 import com.guoyang.easymvvm.helper.extens.bindHttp
-import com.guoyang.wanandroid.helper.extens.bindStatus
+import com.guoyang.easymvvm.helper.extens.bindStatus
 import com.guoyang.wanandroid.mvvm.model.data.ArticleList
 import com.guoyang.wanandroid.mvvm.model.data.BannerBean
 import com.guoyang.wanandroid.mvvm.model.data.BaseBean
