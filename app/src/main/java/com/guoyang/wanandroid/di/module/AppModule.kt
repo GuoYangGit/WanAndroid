@@ -1,7 +1,7 @@
 package com.guoyang.wanandroid.di.module
 
 import android.app.Application
-import com.guoyang.common.helper.network.NetMgr
+import com.guoyang.easymvvm.helper.network.NetMgr
 import com.guoyang.wanandroid.Constants
 import com.guoyang.wanandroid.helper.BaseNetProvider
 import com.guoyang.wanandroid.mvvm.model.remote.ApiService

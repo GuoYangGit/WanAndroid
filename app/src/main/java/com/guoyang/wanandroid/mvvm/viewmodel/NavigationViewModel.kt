@@ -1,11 +1,11 @@
 package com.guoyang.wanandroid.mvvm.viewmodel
 
 import android.databinding.ObservableArrayList
-import com.guoyang.common.base.BaseViewModel
-import com.guoyang.common.helper.extens.bindHttp
+import com.guoyang.easymvvm.base.BaseViewModel
+import com.guoyang.easymvvm.helper.extens.bindHttp
 import com.guoyang.wanandroid.mvvm.model.data.BaseBean
 import com.guoyang.wanandroid.mvvm.model.data.NavigationList
-import com.guoyang.wanandroid.mvvm.model.repository.PaoRepo
+import com.guoyang.wanandroid.mvvm.model.repository.Repo
 import io.reactivex.Single
 
 import javax.inject.Inject
@@ -27,7 +27,7 @@ import javax.inject.Inject
  * QQ:352391291
  */
 
-class NavigationViewModel @Inject constructor(private val remote: PaoRepo) : BaseViewModel() {
+class NavigationViewModel @Inject constructor(private val remote: Repo) : BaseViewModel() {
     val mTitleObservableList = ObservableArrayList<NavigationItemTitleViewModel>()
     val mFlowRvObservableList = ObservableArrayList<ObservableArrayList<FlowItemViewModel>>()
 

@@ -2,7 +2,7 @@ package com.guoyang.wanandroid.helper
 
 import android.widget.ImageView
 import com.bumptech.glide.Glide
-import com.guoyang.common.base.BaseApplication
+import com.guoyang.easymvvm.base.BaseApplication
 import com.guoyang.wanandroid.R
 import jp.wasabeef.glide.transformations.CropCircleTransformation
 

@@ -5,15 +5,15 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import android.view.animation.OvershootInterpolator
 import android.widget.TextView
-import com.guoyang.common.base.BaseActivity
-import com.guoyang.common.helper.annotation.PageStateType
-import com.guoyang.common.helper.extens.bindLifeCycle
-import com.guoyang.common.helper.extens.set
-import com.guoyang.common.helper.extens.toastFail
-import com.guoyang.common.helper.listener.ListListener
-import com.guoyang.common.helper.recyclerview.ItemClickPresenter
-import com.guoyang.common.helper.recyclerview.adapter.SingleTypeAdapter
-import com.guoyang.common.helper.recyclerview.animators.ScaleInItemAnimator
+import com.guoyang.easymvvm.base.BaseActivity
+import com.guoyang.easymvvm.helper.annotation.PageStateType
+import com.guoyang.easymvvm.helper.extens.bindLifeCycle
+import com.guoyang.easymvvm.helper.extens.set
+import com.guoyang.easymvvm.helper.extens.toastFail
+import com.guoyang.easymvvm.helper.listener.ListListener
+import com.guoyang.easymvvm.helper.recyclerview.ItemClickPresenter
+import com.guoyang.easymvvm.helper.recyclerview.adapter.SingleTypeAdapter
+import com.guoyang.easymvvm.helper.recyclerview.animators.ScaleInItemAnimator
 import com.guoyang.wanandroid.mvvm.viewmodel.ArticlesViewModel
 
 import com.guoyang.wanandroid.R

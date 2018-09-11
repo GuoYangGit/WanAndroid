@@ -5,7 +5,7 @@
     <data>
         <variable
             name="listListener"
-            type="com.guoyang.common.helper.listener.ListListener"/>
+            type="com.guoyang.easymvvm.helper.listener.ListListener"/>
         <variable
             name="vm"
             type="com.guoyang.wanandroid.mvvm.viewmodel.ArticlesViewModel"/>

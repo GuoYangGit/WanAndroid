@@ -1,6 +1,6 @@
 package com.guoyang.wanandroid
 
-import com.guoyang.common.base.BaseApplication
+import com.guoyang.easymvvm.base.BaseApplication
 import com.guoyang.wanandroid.di.component.DaggerAppComponent
 
 /***

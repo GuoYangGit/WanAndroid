@@ -4,13 +4,13 @@ import android.content.Intent
 import android.databinding.ViewDataBinding
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
-import com.guoyang.common.base.BaseFragment
-import com.guoyang.common.helper.extens.toastFail
-import com.guoyang.common.helper.recyclerview.ItemClickPresenter
-import com.guoyang.common.helper.recyclerview.ItemDecorator
-import com.guoyang.common.helper.recyclerview.adapter.BindingViewHolder
-import com.guoyang.common.helper.recyclerview.divider.RecyclerViewDivider
-import com.guoyang.common.helper.recyclerview.adapter.SingleTypeAdapter
+import com.guoyang.easymvvm.base.BaseFragment
+import com.guoyang.easymvvm.helper.extens.toastFail
+import com.guoyang.easymvvm.helper.recyclerview.ItemClickPresenter
+import com.guoyang.easymvvm.helper.recyclerview.ItemDecorator
+import com.guoyang.easymvvm.helper.recyclerview.adapter.BindingViewHolder
+import com.guoyang.easymvvm.helper.recyclerview.adapter.SingleTypeAdapter
+import com.guoyang.easymvvm.helper.recyclerview.divider.RecyclerViewDivider
 import com.guoyang.wanandroid.mvvm.viewmodel.NavigationViewModel
 
 import com.guoyang.wanandroid.R
@@ -18,7 +18,6 @@ import com.guoyang.wanandroid.databinding.FragmentNavigationBinding
 import com.guoyang.wanandroid.databinding.ItemNavigationFlowBinding
 import com.guoyang.wanandroid.helper.BindingFlowAdapter
 import com.guoyang.wanandroid.mvvm.view.activity.ArticlesActivity
-import com.guoyang.wanandroid.mvvm.viewmodel.FlowItemViewModel
 import com.guoyang.wanandroid.mvvm.viewmodel.NavigationItemTitleViewModel
 import com.gyf.barlibrary.ImmersionBar
 

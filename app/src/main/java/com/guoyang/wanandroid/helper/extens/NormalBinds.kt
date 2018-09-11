@@ -2,13 +2,12 @@ package com.guoyang.wanandroid.helper.extens
 
 import android.databinding.BindingAdapter
 import android.text.Html
-import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import com.classic.common.MultipleStatusView
-import com.guoyang.common.helper.annotation.RefreshType
-import com.guoyang.common.helper.annotation.PageStateType
-import com.guoyang.common.helper.listener.ListListener
+import com.guoyang.easymvvm.helper.annotation.PageStateType
+import com.guoyang.easymvvm.helper.annotation.RefreshType
+import com.guoyang.easymvvm.helper.listener.ListListener
 import com.guoyang.wanandroid.helper.banner.GlideImageLoader
 import com.guoyang.wanandroid.helper.ImageUtils
 import com.scwang.smartrefresh.layout.SmartRefreshLayout
@@ -42,7 +41,7 @@ fun bindUrl(imageView: ImageView, url: String?, isAvatar: Boolean?) {
 }
 
 @BindingAdapter(value = ["status"])
-fun bindStatus(multipleStatusView: MultipleStatusView, @PageStateType stateType: Int) {
+fun bindStatus(multipleStatusView: MultipleStatusView, @PageStateType stateType: Int?) {
     when (stateType) {
         PageStateType.LOADING -> multipleStatusView.showLoading()
         PageStateType.EMPTY -> multipleStatusView.showEmpty()
@@ -53,21 +52,21 @@ fun bindStatus(multipleStatusView: MultipleStatusView, @PageStateType stateType:
 }
 
 @BindingAdapter(value = ["onRefresh"])
-fun bindOnRefresh(smartRefreshLayout: SmartRefreshLayout, listListener: ListListener) {
+fun bindOnRefresh(smartRefreshLayout: SmartRefreshLayout, listListener: ListListener?) {
     smartRefreshLayout.setOnRefreshLoadMoreListener(object : OnRefreshLoadMoreListener {
         override fun onLoadMore(refreshLayout: RefreshLayout) {
-            listListener.loadData(false)
+            listListener?.loadData(false)
         }
 
         override fun onRefresh(refreshLayout: RefreshLayout) {
-            listListener.loadData(true)
+            listListener?.loadData(true)
         }
 
     })
 }
 
 @BindingAdapter(value = ["refreshing"])
-fun bindRefreshing(smartRefreshLayout: SmartRefreshLayout, @RefreshType refreshType: Int) {
+fun bindRefreshing(smartRefreshLayout: SmartRefreshLayout, @RefreshType refreshType: Int?) {
     when (refreshType) {
         RefreshType.REFRESH -> smartRefreshLayout.finishRefresh()
         RefreshType.LOADMORE -> smartRefreshLayout.finishLoadMore()
@@ -80,7 +79,7 @@ fun bindRefreshing(smartRefreshLayout: SmartRefreshLayout, @RefreshType refreshT
 }
 
 @BindingAdapter(value = ["bannerImages", "bannerTitles"])
-fun bindBanner(banner: Banner, bannerImages: List<String>, bannerTitles: List<String>) {
+fun bindBanner(banner: Banner, bannerImages: List<String>?, bannerTitles: List<String>?) {
     banner.setBannerStyle(BannerConfig.NUM_INDICATOR_TITLE)
     banner.setBannerAnimation(Transformer.CubeOut)
     banner.setImageLoader(GlideImageLoader())
@@ -90,12 +89,11 @@ fun bindBanner(banner: Banner, bannerImages: List<String>, bannerTitles: List<St
 }
 
 @BindingAdapter(value = ["textHtml"])
-fun bindTextHtml(textView: TextView, msg: String) {
-    if (msg.contains("<em class='highlight'>") && msg.contains("</em>")) {
+fun bindTextHtml(textView: TextView, msg: String?) {
+    if (msg != null && msg.contains("<em class='highlight'>") && msg.contains("</em>")) {
         val newMsg = msg
                 .replace("<em class='highlight'>", "<strong><font color='#FF0000'>")
                 .replace("</em>", "</font></strong>")
-        Log.i("tag",newMsg)
         textView.text = Html.fromHtml(newMsg)
     } else {
         textView.text = msg

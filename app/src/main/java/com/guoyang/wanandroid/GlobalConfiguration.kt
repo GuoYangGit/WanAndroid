@@ -11,18 +11,12 @@ import android.support.v4.app.FragmentManager
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.util.Log
-import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import com.guoyang.common.helper.network.NetMgr
-import com.guoyang.common.integration.AppLifecycles
-import com.guoyang.common.integration.ConfigModule
-import com.guoyang.wanandroid.helper.BaseNetProvider
+import com.guoyang.easymvvm.integration.AppLifecycles
+import com.guoyang.easymvvm.integration.ConfigModule
 import com.gyf.barlibrary.ImmersionBar
 import com.scwang.smartrefresh.layout.SmartRefreshLayout
-import com.scwang.smartrefresh.layout.api.DefaultRefreshHeaderCreator
-import com.scwang.smartrefresh.layout.api.RefreshHeader
-import com.scwang.smartrefresh.layout.api.RefreshLayout
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter
 import com.scwang.smartrefresh.layout.header.ClassicsHeader
 

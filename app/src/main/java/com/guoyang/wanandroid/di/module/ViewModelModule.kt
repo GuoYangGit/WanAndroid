@@ -2,8 +2,8 @@ package com.guoyang.wanandroid.di.module
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
-import com.guoyang.common.di.android.ViewModelKey
-import com.guoyang.common.base.ViewModelFactory
+import com.guoyang.easymvvm.base.ViewModelFactory
+import com.guoyang.easymvvm.di.android.ViewModelKey
 import com.guoyang.wanandroid.mvvm.viewmodel.*
 import dagger.Binds
 import dagger.Module

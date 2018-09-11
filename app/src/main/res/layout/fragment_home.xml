@@ -6,11 +6,11 @@
 
         <variable
             name="listener"
-            type="com.guoyang.common.helper.listener.Listener"/>
+            type="com.guoyang.easymvvm.helper.listener.Listener"/>
 
         <variable
             name="listListener"
-            type="com.guoyang.common.helper.listener.ListListener"/>
+            type="com.guoyang.easymvvm.helper.listener.ListListener"/>
 
         <variable
             name="vm"

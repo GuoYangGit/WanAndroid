@@ -1,6 +1,6 @@
 package com.guoyang.wanandroid.mvvm.viewmodel
 
-import com.guoyang.common.base.BaseViewModel
+import com.guoyang.easymvvm.base.BaseViewModel
 
 import javax.inject.Inject
 

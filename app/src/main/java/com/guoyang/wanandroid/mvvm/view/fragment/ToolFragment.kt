@@ -1,17 +1,15 @@
 package com.guoyang.wanandroid.mvvm.view.fragment
 
 import android.content.Intent
-import com.guoyang.common.base.BaseFragment
-import com.guoyang.common.helper.extens.toastFail
+import com.guoyang.easymvvm.base.BaseFragment
+import com.guoyang.easymvvm.helper.extens.toastFail
 import com.guoyang.wanandroid.mvvm.viewmodel.ToolViewModel
 
 import com.guoyang.wanandroid.R
 import com.guoyang.wanandroid.databinding.FragmentToolBinding
 import com.guoyang.wanandroid.helper.BindingFlowAdapter
-import com.guoyang.wanandroid.mvvm.view.activity.ArticlesActivity
 import com.guoyang.wanandroid.mvvm.view.activity.SearchActivity
 import com.guoyang.wanandroid.mvvm.view.activity.WebActivity
-import com.guoyang.wanandroid.mvvm.viewmodel.WebViewModel
 import com.gyf.barlibrary.ImmersionBar
 
 /***

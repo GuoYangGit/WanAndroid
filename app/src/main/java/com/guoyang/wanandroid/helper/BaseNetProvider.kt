@@ -4,9 +4,9 @@ import android.content.Context
 import com.franmontiel.persistentcookiejar.PersistentCookieJar
 import com.franmontiel.persistentcookiejar.cache.SetCookieCache
 import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor
-import com.guoyang.common.helper.network.ApiException
-import com.guoyang.common.helper.network.NetProvider
-import com.guoyang.common.helper.network.RequestHandler
+import com.guoyang.easymvvm.helper.network.ApiException
+import com.guoyang.easymvvm.helper.network.NetProvider
+import com.guoyang.easymvvm.helper.network.RequestHandler
 import com.guoyang.wanandroid.BuildConfig
 import okhttp3.*
 

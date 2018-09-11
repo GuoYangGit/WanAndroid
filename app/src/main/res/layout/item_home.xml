@@ -9,7 +9,7 @@
 
         <variable
             name="presenter"
-            type="com.guoyang.common.helper.recyclerview.ItemClickPresenter"/>
+            type="com.guoyang.easymvvm.helper.recyclerview.ItemClickPresenter"/>
 
         <variable
             name="item"

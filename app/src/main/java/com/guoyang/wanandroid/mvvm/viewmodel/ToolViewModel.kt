@@ -1,14 +1,13 @@
 package com.guoyang.wanandroid.mvvm.viewmodel
 
 import android.databinding.ObservableArrayList
-import com.guoyang.common.base.BaseViewModel
-import com.guoyang.common.helper.extens.bindHttp
-import com.guoyang.wanandroid.helper.extens.bindStatus
+import com.guoyang.easymvvm.base.BaseViewModel
+import com.guoyang.easymvvm.helper.extens.bindHttp
 import com.guoyang.wanandroid.mvvm.model.data.BaseBean
 import com.guoyang.wanandroid.mvvm.model.data.HotAndWebBean
 import com.guoyang.wanandroid.mvvm.model.data.HotSearchBean
 import com.guoyang.wanandroid.mvvm.model.data.WebUrlBean
-import com.guoyang.wanandroid.mvvm.model.repository.PaoRepo
+import com.guoyang.wanandroid.mvvm.model.repository.Repo
 import io.reactivex.Single
 import io.reactivex.functions.BiFunction
 import javax.inject.Inject
@@ -30,7 +29,7 @@ import javax.inject.Inject
  * QQ:352391291
  */
 
-class ToolViewModel @Inject constructor(private val remote: PaoRepo) : BaseViewModel() {
+class ToolViewModel @Inject constructor(private val remote: Repo) : BaseViewModel() {
     val observableWebUrl = ObservableArrayList<FlowItemViewModel>()
     val observableHotSearch = ObservableArrayList<FlowItemViewModel>()
 

@@ -3,7 +3,7 @@ package com.guoyang.wanandroid.mvvm.view.fragment
 import android.graphics.Color
 import android.view.Gravity
 import android.view.View
-import com.guoyang.common.base.BaseFragment
+import com.guoyang.easymvvm.base.BaseFragment
 import com.guoyang.smileview.SmileView
 import com.guoyang.wanandroid.mvvm.viewmodel.MyViewModel
 

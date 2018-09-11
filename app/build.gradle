@@ -21,9 +21,6 @@ android {
     dataBinding {
         enabled = true
     }
-    kapt {
-        generateStubs = true
-    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -33,7 +30,7 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation rootProject.ext.dependencies["kotlin"]
-    implementation project(':common')
+    implementation project(':easymvvm')
     implementation project(':smileview')
     api rootProject.ext.dependencies["bottomnavigation"]
     api rootProject.ext.dependencies["status-view"]

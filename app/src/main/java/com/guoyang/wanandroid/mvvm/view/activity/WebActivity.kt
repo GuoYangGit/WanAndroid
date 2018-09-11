@@ -2,7 +2,7 @@ package com.guoyang.wanandroid.mvvm.view.activity
 
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.guoyang.common.base.BaseActivity
+import com.guoyang.easymvvm.base.BaseActivity
 import com.guoyang.wanandroid.mvvm.viewmodel.WebViewModel
 
 import com.guoyang.wanandroid.R
@@ -49,7 +49,6 @@ class WebActivity : BaseActivity<ActivityWebBinding, WebViewModel>() {
     }
 
     override fun initData() {
-
     }
 
     override fun onPause() {

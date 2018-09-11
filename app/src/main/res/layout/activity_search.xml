@@ -6,7 +6,7 @@
 
         <variable
             name="listListener"
-            type="com.guoyang.common.helper.listener.ListListener"/>
+            type="com.guoyang.easymvvm.helper.listener.ListListener"/>
 
         <variable
             name="vm"

@@ -1,6 +1,6 @@
 package com.guoyang.wanandroid.mvvm.model.data
 
-import com.guoyang.common.helper.network.IBaseBean
+import com.guoyang.easymvvm.helper.network.IBaseBean
 
 /***
  *

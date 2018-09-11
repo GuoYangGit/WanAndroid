@@ -4,11 +4,10 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentStatePagerAdapter
 import com.ashokvarma.bottomnavigation.BottomNavigationBar
 import com.ashokvarma.bottomnavigation.BottomNavigationItem
-import com.guoyang.common.adapter.AbsViewPageAdapter
+import com.guoyang.easymvvm.base.BaseActivity
 import com.guoyang.wanandroid.mvvm.viewmodel.MainViewModel
 import com.guoyang.wanandroid.R
 import com.guoyang.wanandroid.databinding.ActivityMainBinding
-import com.guoyang.common.base.BaseActivity
 import com.guoyang.wanandroid.mvvm.view.fragment.HomeFragment
 import com.guoyang.wanandroid.mvvm.view.fragment.MyFragment
 import com.guoyang.wanandroid.mvvm.view.fragment.NavigationFragment
@@ -45,7 +44,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(), HasSupp
     private lateinit var fragmentAdapter: FragmentStatePagerAdapter
 
     override fun initView() {
-        fragmentAdapter = object : AbsViewPageAdapter(supportFragmentManager, arrayOf("首页", "导航", "最热", "我的")) {
+        fragmentAdapter = object : com.guoyang.easymvvm.adapter.AbsViewPageAdapter(supportFragmentManager, arrayOf("首页", "导航", "最热", "我的")) {
             override fun getItem(position: Int): Fragment? {
                 if (list[position] == null) {
                     list[position] = (return when (position) {
