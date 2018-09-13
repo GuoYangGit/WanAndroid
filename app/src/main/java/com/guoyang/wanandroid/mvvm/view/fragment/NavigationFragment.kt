@@ -6,17 +6,17 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.guoyang.easymvvm.base.BaseFragment
 import com.guoyang.easymvvm.helper.extens.toastFail
-import com.guoyang.commonres.view.recyclerview.ItemClickPresenter
-import com.guoyang.commonres.view.recyclerview.ItemDecorator
-import com.guoyang.commonres.view.recyclerview.adapter.BindingViewHolder
-import com.guoyang.commonres.view.recyclerview.adapter.SingleTypeAdapter
-import com.guoyang.commonres.view.recyclerview.divider.RecyclerViewDivider
 import com.guoyang.wanandroid.mvvm.viewmodel.NavigationViewModel
 
 import com.guoyang.wanandroid.R
 import com.guoyang.wanandroid.databinding.FragmentNavigationBinding
 import com.guoyang.wanandroid.databinding.ItemNavigationFlowBinding
 import com.guoyang.commonres.view.adapter.BindingFlowAdapter
+import com.guoyang.recyclerviewbindingadapter.ItemClickPresenter
+import com.guoyang.recyclerviewbindingadapter.ItemDecorator
+import com.guoyang.recyclerviewbindingadapter.adapter.BindingViewHolder
+import com.guoyang.recyclerviewbindingadapter.adapter.SingleTypeAdapter
+import com.guoyang.recyclerviewbindingadapter.divider.RecyclerViewDivider
 import com.guoyang.wanandroid.mvvm.view.activity.ArticlesActivity
 import com.guoyang.wanandroid.mvvm.viewmodel.NavigationItemTitleViewModel
 import com.gyf.barlibrary.ImmersionBar

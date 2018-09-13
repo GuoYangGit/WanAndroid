@@ -2,7 +2,7 @@ package com.guoyang.commonres.view.banner
 
 import android.content.Context
 import android.widget.ImageView
-import com.guoyang.commonsdk.utils.ImageUtils
+import com.guoyang.commonres.config.ImageUtils
 import com.youth.banner.loader.ImageLoader
 
 /***

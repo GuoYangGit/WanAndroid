@@ -36,15 +36,13 @@ class NavigationViewModel @Inject constructor(private val remote: Repo) : BaseVi
                 .bindHttp()
                 .doOnSuccess {
                     it.data.map {
-                        NavigationItemTitleViewModel(it)
-                    }.map {
-                        mTitleObservableList.add(it)
-                        it.item
+                        mTitleObservableList.add(NavigationItemTitleViewModel(it))
+                        it.children
                     }.map {
                         it.map {
                             FlowItemViewModel(it.id, it.name)
                         }.let {
-                            val list:ObservableArrayList<FlowItemViewModel> = ObservableArrayList()
+                            val list: ObservableArrayList<FlowItemViewModel> = ObservableArrayList()
                             list.addAll(it)
                             mFlowRvObservableList.add(list)
                         }

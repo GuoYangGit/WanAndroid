@@ -11,9 +11,9 @@ import com.guoyang.easymvvm.helper.extens.bindLifeCycle
 import com.guoyang.easymvvm.helper.extens.set
 import com.guoyang.easymvvm.helper.extens.toastFail
 import com.guoyang.easymvvm.helper.listener.RefreshPresenter
-import com.guoyang.commonres.view.recyclerview.ItemClickPresenter
-import com.guoyang.commonres.view.recyclerview.adapter.SingleTypeAdapter
-import com.guoyang.commonres.view.recyclerview.animators.ScaleInItemAnimator
+import com.guoyang.recyclerviewbindingadapter.ItemClickPresenter
+import com.guoyang.recyclerviewbindingadapter.adapter.SingleTypeAdapter
+import com.guoyang.recyclerviewbindingadapter.animators.ScaleInItemAnimator
 import com.guoyang.wanandroid.mvvm.viewmodel.ArticlesViewModel
 
 import com.guoyang.wanandroid.R

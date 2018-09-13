@@ -1,6 +1,5 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
@@ -30,7 +29,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation rootProject.ext.dependencies["kotlin"]
-    api project(':easymvvm')
+    api project(':commonres')
     api(rootProject.ext.dependencies["arouter"]) {
         exclude module: 'support-v4'
         exclude module: 'support-annotations'

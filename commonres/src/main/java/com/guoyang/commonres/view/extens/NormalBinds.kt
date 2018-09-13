@@ -5,11 +5,11 @@ import android.text.Html
 import android.widget.ImageView
 import android.widget.TextView
 import com.classic.common.MultipleStatusView
+import com.guoyang.commonres.config.ImageUtils
 import com.guoyang.easymvvm.helper.annotation.PageStateType
 import com.guoyang.easymvvm.helper.annotation.RefreshType
 import com.guoyang.easymvvm.helper.listener.RefreshPresenter
 import com.guoyang.commonres.view.banner.GlideImageLoader
-import com.guoyang.commonsdk.utils.ImageUtils
 import com.scwang.smartrefresh.layout.SmartRefreshLayout
 import com.scwang.smartrefresh.layout.api.RefreshLayout
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener

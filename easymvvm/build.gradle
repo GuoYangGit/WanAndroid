@@ -18,9 +18,11 @@ android {
         versionName rootProject.ext.android["versionName"]
 
     }
+
     dataBinding {
         enabled = true
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -73,6 +75,9 @@ dependencies {
     api rootProject.ext.dependencies["dagger2"]
     api rootProject.ext.dependencies["dagger2-android"]
     api rootProject.ext.dependencies["dagger2-android-support"]
+
+    //tools
+    api rootProject.ext.dependencies["timber"]
 
     //test
     testImplementation rootProject.ext.dependencies["junit"]

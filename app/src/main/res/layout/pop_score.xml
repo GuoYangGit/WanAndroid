@@ -16,5 +16,5 @@
         android:text="帮忙给App评个分呗^_^"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:textColor="@color/white_color"/>
+        android:textColor="@color/public_white_color"/>
 </LinearLayout>

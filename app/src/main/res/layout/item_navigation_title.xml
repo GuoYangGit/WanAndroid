@@ -6,7 +6,7 @@
 
         <variable
             name="presenter"
-            type="com.guoyang.commonres.view.recyclerview.ItemClickPresenter"/>
+            type="com.guoyang.recyclerviewbindingadapter.ItemClickPresenter"/>
 
         <variable
             name="item"

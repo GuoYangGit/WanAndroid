@@ -1,6 +1,5 @@
 package com.guoyang.easymvvm.helper.network
 
-import android.util.Log
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -8,6 +7,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import timber.log.Timber
 import java.util.concurrent.TimeUnit
 
 /***
@@ -121,7 +121,7 @@ object NetMgr {
 
         if (provider.configLogEnable()) {
             val loggingInterceptor = HttpLoggingInterceptor(HttpLoggingInterceptor.Logger {
-                Log.d("okhttp", it)
+                Timber.d( it)
             })
             loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
             builder.addInterceptor(loggingInterceptor)

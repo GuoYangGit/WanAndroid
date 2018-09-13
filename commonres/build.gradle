@@ -13,9 +13,11 @@ android {
         versionName rootProject.ext.android["versionName"]
 
     }
+
     dataBinding {
         enabled = true
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -29,9 +31,11 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation rootProject.ext.dependencies["kotlin"]
-    api project(':commonsdk')
+    api project(':easymvvm')
 
-    api rootProject.ext.dependencies["cardview-v7"]
+    api(rootProject.ext.dependencies["cardview-v7"]) {
+        exclude module: 'support-annotations'
+    }
     api rootProject.ext.dependencies["SmartRefreshLayout"]
     api rootProject.ext.dependencies["bottomnavigation"]
     api rootProject.ext.dependencies["status-view"]
@@ -42,4 +46,5 @@ dependencies {
     api rootProject.ext.dependencies["contourview"]
     api rootProject.ext.dependencies["circleimageview"]
     api rootProject.ext.dependencies["EasyPopup"]
+    api rootProject.ext.dependencies["RecyclerViewBindingAdapter"]
 }

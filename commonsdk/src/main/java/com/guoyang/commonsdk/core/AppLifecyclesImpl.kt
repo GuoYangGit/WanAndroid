@@ -1,11 +1,18 @@
-package com.guoyang.commonsdk.utils
+package com.guoyang.commonsdk.core
 
-import android.widget.ImageView
-import com.bumptech.glide.Glide
-import com.guoyang.commonsdk.R
-import com.guoyang.easymvvm.base.BaseApplication
-import jp.wasabeef.glide.transformations.CropCircleTransformation
+import android.app.Application
+import android.content.Context
+import com.guoyang.easymvvm.integration.AppLifecycles
+import timber.log.Timber
 
+/***
+ * You may think you know what the following code does.
+ * But you dont. Trust me.
+ * Fiddle with it, and youll spend many a sleepless
+ * night cursing the moment you thought youd be clever
+ * enough to "optimize" the code below.
+ * Now close this file and go play with something else.
+ */
 /***
  *
  *   █████▒█    ██  ▄████▄   ██ ▄█▀       ██████╗ ██╗   ██╗ ██████╗
@@ -18,26 +25,20 @@ import jp.wasabeef.glide.transformations.CropCircleTransformation
  *  ░ ░    ░░░ ░ ░ ░        ░ ░░ ░
  *           ░     ░ ░      ░  ░
  *
- * Created by guoyang on 2018/8/22.
+ * Created by guoyang on 2018/9/11.
  * github https://github.com/GuoYangGit
  * QQ:352391291
  */
+class AppLifecyclesImpl : AppLifecycles {
+    override fun attachBaseContext(base: Context) {
+        Timber.i("Application attachBaseContext")
+    }
 
-object ImageUtils {
-    fun load(url: String?, imageView: ImageView, isAvatar: Boolean = false) {
-        if (!isAvatar) {
-            Glide.with(BaseApplication.instance())
-                    .load(url)
-                    .placeholder(R.color.white_color)
-                    .error(R.color.white_color)
-                    .into(imageView)
-        } else {
-            Glide.with(BaseApplication.instance())
-                    .load(url)
-                    .bitmapTransform(CropCircleTransformation(imageView.context))
-                    .placeholder(R.color.white_color)
-                    .error(R.color.white_color)
-                    .into(imageView)
-        }
+    override fun onCreate(application: Application) {
+        Timber.i("${application.javaClass.simpleName} onCreate")
+    }
+
+    override fun onTerminate(application: Application) {
+        Timber.i("${application.javaClass.simpleName} onCreate")
     }
 }

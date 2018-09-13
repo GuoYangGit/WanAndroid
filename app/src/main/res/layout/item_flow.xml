@@ -25,6 +25,6 @@
             android:paddingLeft="6dp"
             android:paddingRight="6dp"
             android:text="@{vm.title}"
-            android:textColor="@color/white_color"/>
+            android:textColor="@color/public_white_color"/>
     </android.support.v7.widget.CardView>
 </layout>
