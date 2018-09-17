@@ -5,7 +5,7 @@
 
         <variable
             name="vm"
-            type="com.guoyang.wanandroid.mvvm.viewmodel.WebViewModel"/>
+            type="com.guoyang.module.web.mvvm.viewmodel.WebViewModel"/>
     </data>
 
     <LinearLayout

@@ -1,11 +1,12 @@
 package com.guoyang.wanandroid.mvvm.view.activity
 
-import android.content.Intent
 import android.support.v7.widget.LinearLayoutManager
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.view.animation.OvershootInterpolator
+import com.alibaba.android.arouter.launcher.ARouter
+import com.guoyang.commonsdk.core.RouterHub
 import com.guoyang.easymvvm.base.BaseActivity
 import com.guoyang.easymvvm.helper.annotation.PageStateType
 import com.guoyang.easymvvm.helper.extens.set
@@ -30,10 +31,10 @@ class SearchActivity : BaseActivity<ActivitySearchBinding, SearchViewModel>(), R
     }
 
     override fun onItemClick(v: View, item: ArticlesItemModel) {
-        val intent = Intent(this, WebActivity::class.java)
-        intent.putExtra(WebActivity.URL, item.link)
-        intent.putExtra(WebActivity.TITLE, item.title)
-        startActivity(intent)
+        ARouter.getInstance().build(RouterHub.WEB_WEBACTIVITY)
+                .withString("url",item.link)
+                .withString("title",item.title)
+                .navigation()
     }
 
     override fun loadData(isRefresh: Boolean) {

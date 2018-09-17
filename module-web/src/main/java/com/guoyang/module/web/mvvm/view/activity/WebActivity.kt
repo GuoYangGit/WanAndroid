@@ -1,13 +1,17 @@
-package com.guoyang.wanandroid.mvvm.view.activity
+package com.guoyang.module.web.mvvm.view.activity
 
 import android.annotation.SuppressLint
 import android.widget.LinearLayout
 import android.widget.TextView
+import com.alibaba.android.arouter.facade.annotation.Autowired
+import com.alibaba.android.arouter.facade.annotation.Route
+import com.alibaba.android.arouter.launcher.ARouter
+import com.guoyang.commonsdk.core.RouterHub
 import com.guoyang.easymvvm.base.BaseActivity
-import com.guoyang.wanandroid.mvvm.viewmodel.WebViewModel
+import com.guoyang.module.web.R
+import com.guoyang.module.web.databinding.WebActivityWebBinding
+import com.guoyang.module.web.mvvm.viewmodel.WebViewModel
 
-import com.guoyang.wanandroid.R
-import com.guoyang.wanandroid.databinding.ActivityWebBinding
 import com.just.agentweb.AgentWeb
 
 /***
@@ -26,27 +30,27 @@ import com.just.agentweb.AgentWeb
  * github https://github.com/GuoYangGit
  * QQ:352391291
  */
-
-class WebActivity : BaseActivity<ActivityWebBinding, WebViewModel>() {
-    private var baseUrl: String? = null
+@Route(path = RouterHub.WEB_WEBACTIVITY)
+class WebActivity : BaseActivity<WebActivityWebBinding, WebViewModel>() {
+    @Autowired(name = "url")
+    @JvmField
+    var url: String? = null
+    @Autowired(name = "title")
+    @JvmField
+    var title: String? = null
     private var mAgentWeb: AgentWeb? = null
 
-    companion object {
-        const val URL = "url"
-        const val TITLE = "title"
-    }
-
-    override fun getLayoutId(): Int = R.layout.activity_web
+    override fun getLayoutId(): Int = R.layout.web_activity_web
 
     override fun initView() {
-        baseUrl = intent.getStringExtra(URL)
-        findViewById<TextView>(R.id.toolbar_title).text = intent.getStringExtra(TITLE)
+        ARouter.getInstance().inject(this)
+        findViewById<TextView>(R.id.toolbar_title).text = title?:"百度"
         AgentWeb.with(this)
                 .setAgentWebParent(mBinding.contentView, LinearLayout.LayoutParams(-1, -1))
                 .useDefaultIndicator()
                 .createAgentWeb()
                 .ready()
-                .go(baseUrl)
+                .go(url?:"https://www.baidu.com")
     }
 
     override fun initData() {

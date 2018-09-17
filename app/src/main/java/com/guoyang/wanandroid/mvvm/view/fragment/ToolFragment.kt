@@ -1,6 +1,7 @@
 package com.guoyang.wanandroid.mvvm.view.fragment
 
 import android.content.Intent
+import com.alibaba.android.arouter.launcher.ARouter
 import com.guoyang.easymvvm.base.BaseFragment
 import com.guoyang.easymvvm.helper.extens.toastFail
 import com.guoyang.wanandroid.mvvm.viewmodel.ToolViewModel
@@ -8,8 +9,8 @@ import com.guoyang.wanandroid.mvvm.viewmodel.ToolViewModel
 import com.guoyang.wanandroid.R
 import com.guoyang.wanandroid.databinding.FragmentToolBinding
 import com.guoyang.commonres.view.adapter.BindingFlowAdapter
+import com.guoyang.commonsdk.core.RouterHub
 import com.guoyang.wanandroid.mvvm.view.activity.SearchActivity
-import com.guoyang.wanandroid.mvvm.view.activity.WebActivity
 import com.gyf.barlibrary.ImmersionBar
 
 /***
@@ -56,10 +57,10 @@ class ToolFragment : BaseFragment<FragmentToolBinding, ToolViewModel>() {
             apiUrlFlow.run {
                 adapter = mApiUrlAdapter
                 setOnTagClickListener { _, position, _ ->
-                    val intent = Intent(mContext, WebActivity::class.java)
-                    intent.putExtra(WebActivity.URL, mViewModel.observableWebUrl[position].link)
-                    intent.putExtra(WebActivity.TITLE, mViewModel.observableWebUrl[position].title)
-                    mContext.startActivity(intent)
+                    ARouter.getInstance().build(RouterHub.WEB_WEBACTIVITY)
+                            .withString("url", mViewModel.observableWebUrl[position].link)
+                            .withString("title", mViewModel.observableWebUrl[position].title)
+                            .navigation()
                     return@setOnTagClickListener true
                 }
             }

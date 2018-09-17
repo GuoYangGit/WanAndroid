@@ -11,9 +11,8 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/commonres" />
             <option value="$PROJECT_DIR$/commonsdk" />
-            <option value="$PROJECT_DIR$/commonservice" />
             <option value="$PROJECT_DIR$/easymvvm" />
-            <option value="$PROJECT_DIR$/smileview" />
+            <option value="$PROJECT_DIR$/module-web" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

@@ -1,1 +1,1 @@
-include ':app', ':easymvvm', ':smileview', ':commonsdk', ':commonres', ':commonservice'
+include ':app', ':easymvvm', ':commonsdk', ':commonres', ':module-web'

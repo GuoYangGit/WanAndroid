@@ -4,6 +4,8 @@ import android.content.Intent
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import android.view.animation.OvershootInterpolator
+import com.alibaba.android.arouter.launcher.ARouter
+import com.guoyang.commonsdk.core.RouterHub
 import com.guoyang.easymvvm.base.BaseFragment
 import com.guoyang.easymvvm.helper.annotation.PageStateType
 import com.guoyang.easymvvm.helper.extens.bindLifeCycle
@@ -16,7 +18,6 @@ import com.guoyang.recyclerviewbindingadapter.animators.ScaleInItemAnimator
 import com.guoyang.wanandroid.R
 import com.guoyang.wanandroid.databinding.FragmentHomeBinding
 import com.guoyang.wanandroid.mvvm.view.activity.SearchActivity
-import com.guoyang.wanandroid.mvvm.view.activity.WebActivity
 import com.guoyang.wanandroid.mvvm.viewmodel.ArticlesItemModel
 import com.guoyang.wanandroid.mvvm.viewmodel.HomeViewModel
 import com.gyf.barlibrary.ImmersionBar
@@ -41,10 +42,10 @@ import com.gyf.barlibrary.ImmersionBar
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(), RefreshPresenter, ItemClickPresenter<ArticlesItemModel> {
 
     override fun onItemClick(v: View, item: ArticlesItemModel) {
-        val intent = Intent(mContext, WebActivity::class.java)
-        intent.putExtra(WebActivity.URL, item.link)
-        intent.putExtra(WebActivity.TITLE, item.title)
-        mContext.startActivity(intent)
+        ARouter.getInstance().build(RouterHub.WEB_WEBACTIVITY)
+                .withString("url", item.link)
+                .withString("title", item.title)
+                .navigation()
     }
 
     override fun loadData(isRefresh: Boolean) {
@@ -78,10 +79,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(), Refresh
             }
             banner.setOnBannerListener {
                 mViewModel.bannerBean[it]?.run {
-                    val intent = Intent(mContext, WebActivity::class.java)
-                    intent.putExtra(WebActivity.URL, url)
-                    intent.putExtra(WebActivity.TITLE, title)
-                    mContext.startActivity(intent)
+                    ARouter.getInstance().build(RouterHub.WEB_WEBACTIVITY)
+                            .withString("url", url)
+                            .withString("title", title)
+                            .navigation()
                 }
             }
         }

@@ -1,6 +1,9 @@
 package com.guoyang.wanandroid.di.component
 
 import android.app.Application
+import com.guoyang.commonsdk.di.FactoryModule
+import com.guoyang.module.web.di.module.WebActivityModule
+import com.guoyang.module.web.di.module.WebViewModelModule
 import com.guoyang.wanandroid.App
 import com.guoyang.wanandroid.di.module.ActivityModule
 import com.guoyang.wanandroid.di.module.AppModule
@@ -31,10 +34,13 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = [
     AndroidSupportInjectionModule::class,
+    FactoryModule::class,
     AppModule::class,
     ActivityModule::class,
     FragmentModule::class,
-    ViewModelModule::class])
+    ViewModelModule::class,
+    WebActivityModule::class,
+    WebViewModelModule::class])
 interface AppComponent {
     @Component.Builder
     interface Builder {

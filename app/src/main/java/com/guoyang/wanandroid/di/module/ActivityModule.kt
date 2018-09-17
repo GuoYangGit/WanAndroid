@@ -3,7 +3,6 @@ package com.guoyang.wanandroid.di.module
 import com.guoyang.wanandroid.mvvm.view.activity.ArticlesActivity
 import com.guoyang.wanandroid.mvvm.view.activity.MainActivity
 import com.guoyang.wanandroid.mvvm.view.activity.SearchActivity
-import com.guoyang.wanandroid.mvvm.view.activity.WebActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -28,9 +27,6 @@ import dagger.android.ContributesAndroidInjector
 abstract class ActivityModule {
     @ContributesAndroidInjector
     abstract fun contributeMainActivity(): MainActivity
-
-    @ContributesAndroidInjector
-    abstract fun contributeWebActivity(): WebActivity
 
     @ContributesAndroidInjector
     abstract fun contributeArticlesActivity(): ArticlesActivity

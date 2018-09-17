@@ -7,14 +7,21 @@ if (isBuildModule.toBoolean()) {
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
+
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
+
 android {
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
     buildToolsVersion rootProject.ext.android["buildToolsVersion"]
     useLibrary 'org.apache.http.legacy'
 
     compileOptions {
-        targetCompatibility JavaVersion.VERSION_1_8
-        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_7
+        sourceCompatibility JavaVersion.VERSION_1_7
     }
 
     defaultConfig {
@@ -23,12 +30,6 @@ android {
         versionCode rootProject.ext.android["versionCode"]
         versionName rootProject.ext.android["versionName"]
         testInstrumentationRunner rootProject.ext.dependencies["androidJUnitRunner"]
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [moduleName: project.getName()]
-                includeCompileClasspath true
-            }
-        }
     }
 
     buildTypes {
@@ -59,4 +60,5 @@ dependencies {
     kapt rootProject.ext.dependencies["dagger2-android-processor"]
     kapt rootProject.ext.dependencies["arouter-compiler"]
     implementation rootProject.ext.dependencies["kotlin"]
+    api project(':commonsdk')
 }

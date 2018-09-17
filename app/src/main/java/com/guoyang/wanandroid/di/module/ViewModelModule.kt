@@ -56,11 +56,6 @@ abstract class ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(WebViewModel::class)
-    abstract fun bindWebViewModel(viewModel: WebViewModel): ViewModel
-
-    @Binds
-    @IntoMap
     @ViewModelKey(ArticlesViewModel::class)
     abstract fun bindArticlesViewModel(viewModel: ArticlesViewModel): ViewModel
 
@@ -68,7 +63,4 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(SearchViewModel::class)
     abstract fun bindSearchViewModel(viewModel: SearchViewModel): ViewModel
-
-    @Binds
-    abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
 }
