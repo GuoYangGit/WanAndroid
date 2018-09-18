@@ -1,4 +1,4 @@
-package com.guoyang.commonsdk.di
+package com.guoyang.easymvvm.di.android
 
 import android.arch.lifecycle.ViewModelProvider
 import com.guoyang.easymvvm.base.ViewModelFactory

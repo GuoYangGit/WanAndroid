@@ -1,7 +1,7 @@
 package com.guoyang.module.web.di.component
 
 import android.app.Application
-import com.guoyang.commonsdk.di.FactoryModule
+import com.guoyang.easymvvm.di.android.FactoryModule
 import com.guoyang.module.web.App
 import com.guoyang.module.web.di.module.WebActivityModule
 import com.guoyang.module.web.di.module.WebViewModelModule
