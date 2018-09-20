@@ -7,8 +7,8 @@ android {
     buildToolsVersion rootProject.ext.android["buildToolsVersion"]
 
     compileOptions {
-        targetCompatibility JavaVersion.VERSION_1_7
-        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
     }
 
     defaultConfig {
@@ -81,4 +81,7 @@ dependencies {
 
     //test
     testImplementation rootProject.ext.dependencies["junit"]
+
+    implementation 'com.android.support:multidex:1.0.2'
+
 }

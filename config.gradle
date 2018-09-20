@@ -11,12 +11,12 @@ ext {
     ]
 
     version = [
-            androidSupportSdkVersion: "27.1.0",
+            androidSupportSdkVersion: "27.1.1",
             retrofitSdkVersion      : "2.4.0",
             dagger2SdkVersion       : "2.16",
             glideSdkVersion         : "3.7.0",
             lifeVersion             : "1.1.1",
-            kotlin_version          : "1.2.51",
+            kotlin_version          : "1.2.50",
     ]
 
     dependencies = [
@@ -77,7 +77,7 @@ ext {
             "circleimageview"                   : "de.hdodenhof:circleimageview:2.2.0",
             "EasyPopup"                         : "com.github.zyyoona7:EasyPopup:1.1.2",
             "RecyclerViewBindingAdapter"        : "com.guoyanggit:RecyclerViewBindingAdapter:1.0.1",
-            "smileview"        : "com.guoyanggit:smileview:1.0.1",
+            "smileview"                         : "com.guoyanggit:smileview:1.0.1",
 
             //tools
             "arouter"                           : "com.alibaba:arouter-api:1.4.0",

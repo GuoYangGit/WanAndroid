@@ -1,13 +1,12 @@
 package com.guoyang.module.web.di.module
 
 import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
-import com.guoyang.easymvvm.base.ViewModelFactory
 import com.guoyang.easymvvm.di.android.ViewModelKey
-import com.guoyang.module.web.mvvm.viewmodel.*
+import com.guoyang.module.web.mvvm.viewmodel.WebViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
+
 
 /***
  *
@@ -27,10 +26,9 @@ import dagger.multibindings.IntoMap
  */
 
 @Module
-abstract class WebViewModelModule {
-
+abstract class WebViewModelModule{
     @Binds
     @IntoMap
     @ViewModelKey(WebViewModel::class)
-    abstract fun bindWebViewModel(viewModel: WebViewModel): ViewModel
+    abstract fun bindSearchViewModel(viewModel: WebViewModel): ViewModel
 }

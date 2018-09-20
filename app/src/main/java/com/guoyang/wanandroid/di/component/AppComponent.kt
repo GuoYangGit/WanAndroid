@@ -2,13 +2,9 @@ package com.guoyang.wanandroid.di.component
 
 import android.app.Application
 import com.guoyang.easymvvm.di.android.FactoryModule
-import com.guoyang.module.web.di.module.WebActivityModule
-import com.guoyang.module.web.di.module.WebViewModelModule
-import com.guoyang.wanandroid.App
-import com.guoyang.wanandroid.di.module.ActivityModule
+import com.guoyang.module.web.di.module.WebAppModule
+import com.guoyang.wanandroid.core.App
 import com.guoyang.wanandroid.di.module.AppModule
-import com.guoyang.wanandroid.di.module.FragmentModule
-import com.guoyang.wanandroid.di.module.ViewModelModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.support.AndroidSupportInjectionModule
@@ -36,11 +32,8 @@ import javax.inject.Singleton
     AndroidSupportInjectionModule::class,
     FactoryModule::class,
     AppModule::class,
-    ActivityModule::class,
-    FragmentModule::class,
-    ViewModelModule::class,
-    WebActivityModule::class,
-    WebViewModelModule::class])
+    com.guoyang.module.wan.di.module.AppModule::class,
+    WebAppModule::class])
 interface AppComponent {
     @Component.Builder
     interface Builder {

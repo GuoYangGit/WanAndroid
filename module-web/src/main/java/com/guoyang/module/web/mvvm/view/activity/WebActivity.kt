@@ -6,11 +6,10 @@ import android.widget.TextView
 import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
-import com.guoyang.commonsdk.core.RouterHub
+import com.guoyang.commonsdk.core.RouterConstants
 import com.guoyang.easymvvm.base.BaseActivity
 import com.guoyang.module.web.R
 import com.guoyang.module.web.databinding.WebActivityWebBinding
-import com.guoyang.module.web.mvvm.viewmodel.WebViewModel
 
 import com.just.agentweb.AgentWeb
 
@@ -30,8 +29,8 @@ import com.just.agentweb.AgentWeb
  * github https://github.com/GuoYangGit
  * QQ:352391291
  */
-@Route(path = RouterHub.WEB_WEBACTIVITY)
-class WebActivity : BaseActivity<WebActivityWebBinding, WebViewModel>() {
+@Route(path = RouterConstants.WEB_WEBACTIVITY)
+class WebActivity : BaseActivity<WebActivityWebBinding>() {
     @Autowired(name = "url")
     @JvmField
     var url: String? = null

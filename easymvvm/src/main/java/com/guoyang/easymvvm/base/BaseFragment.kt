@@ -13,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.guoyang.easymvvm.BR
 import com.guoyang.easymvvm.helper.listener.ClickPresenter
+import dagger.Lazy
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
@@ -33,20 +34,16 @@ import javax.inject.Inject
  * QQ:352391291
  */
 
-abstract class BaseFragment<B : ViewDataBinding, V : ViewModel> : Fragment(), IView, ClickPresenter {
+abstract class BaseFragment<B : ViewDataBinding> : Fragment(), IView, ClickPresenter {
     protected lateinit var mContext: Context
     protected lateinit var mBinding: B
-    protected lateinit var mViewModel: V
 
     @Inject
-    lateinit var factory: ViewModelProvider.Factory
-    @Inject
-    lateinit var modelClass: V
+    lateinit var factory: Lazy<ViewModelProvider.Factory>
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         mContext = activity ?: throw Exception("activity is null")
-        initBinding()
         initView()
         initData()
     }
@@ -58,14 +55,11 @@ abstract class BaseFragment<B : ViewDataBinding, V : ViewModel> : Fragment(), IV
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mBinding = DataBindingUtil.inflate(inflater, getLayoutId(), null, false)
+        mBinding.setLifecycleOwner(this)
         return mBinding.root
     }
 
-    private fun initBinding() {
-        mViewModel = ViewModelProviders.of(this, factory).get(modelClass.javaClass)
-        mBinding.setVariable(BR.vm, mViewModel)
-        mBinding.setLifecycleOwner(this)
-    }
+    override fun <T : ViewModel> createVM(modelClass: Class<T>): T = ViewModelProviders.of(this, factory.get()).get(modelClass)
 
     override fun onClick(v: View?) {
     }

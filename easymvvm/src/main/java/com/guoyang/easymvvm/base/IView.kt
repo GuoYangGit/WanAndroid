@@ -1,6 +1,8 @@
 package com.guoyang.easymvvm.base
 
+import android.arch.lifecycle.ViewModel
 import android.support.annotation.LayoutRes
+import android.support.annotation.NonNull
 
 /***
  *
@@ -26,4 +28,6 @@ interface IView {
     fun initView()
 
     fun initData()
+
+    fun <T : ViewModel> createVM(@NonNull modelClass: Class<T>): T
 }
