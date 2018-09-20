@@ -26,5 +26,5 @@ import dagger.Module
  * github https://github.com/GuoYangGit
  * QQ:352391291
  */
-@Module(includes = [WebActivityModule::class, WebViewModelModule::class])
-class WebAppModule
+@Module(includes = [ActivityModule::class, ViewModelModule::class])
+class AppModule

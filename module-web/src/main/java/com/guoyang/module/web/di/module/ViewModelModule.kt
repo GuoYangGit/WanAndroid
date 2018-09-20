@@ -26,7 +26,7 @@ import dagger.multibindings.IntoMap
  */
 
 @Module
-abstract class WebViewModelModule{
+abstract class ViewModelModule{
     @Binds
     @IntoMap
     @ViewModelKey(WebViewModel::class)

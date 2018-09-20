@@ -3,7 +3,7 @@ package com.guoyang.module.web.di.component
 import android.app.Application
 import com.guoyang.easymvvm.di.android.FactoryModule
 import com.guoyang.module.web.core.App
-import com.guoyang.module.web.di.module.WebAppModule
+import com.guoyang.module.web.di.module.AppModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.support.AndroidSupportInjectionModule
@@ -30,7 +30,7 @@ import javax.inject.Singleton
 @Component(modules = [
     AndroidSupportInjectionModule::class,
     FactoryModule::class,
-    WebAppModule::class])
+    AppModule::class])
 interface AppComponent {
     @Component.Builder
     interface Builder {
