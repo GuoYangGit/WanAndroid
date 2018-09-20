@@ -29,5 +29,5 @@ abstract class ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(WelcomeViewModel::class)
-    abstract fun bindSearchViewModel(viewModel: WelcomeViewModel): ViewModel
+    abstract fun bindWelcomeViewModel(viewModel: WelcomeViewModel): ViewModel
 }

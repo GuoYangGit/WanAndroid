@@ -30,5 +30,5 @@ abstract class WebViewModelModule{
     @Binds
     @IntoMap
     @ViewModelKey(WebViewModel::class)
-    abstract fun bindSearchViewModel(viewModel: WebViewModel): ViewModel
+    abstract fun bindWebViewViewModel(viewModel: WebViewModel): ViewModel
 }

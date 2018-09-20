@@ -16,7 +16,7 @@ ext {
             dagger2SdkVersion       : "2.16",
             glideSdkVersion         : "3.7.0",
             lifeVersion             : "1.1.1",
-            kotlin_version          : "1.2.50",
+            kotlin_version          : "1.2.70",
     ]
 
     dependencies = [

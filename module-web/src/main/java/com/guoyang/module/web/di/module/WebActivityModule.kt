@@ -24,5 +24,5 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class WebActivityModule {
     @ContributesAndroidInjector
-    abstract fun contributeMainActivity(): WebActivity
+    abstract fun contributeWebActivity(): WebActivity
 }
