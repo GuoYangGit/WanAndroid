@@ -75,6 +75,7 @@ dependencies {
     api rootProject.ext.dependencies["dagger2"]
     api rootProject.ext.dependencies["dagger2-android"]
     api rootProject.ext.dependencies["dagger2-android-support"]
+    kapt rootProject.ext.dependencies["dagger2-compiler"]
 
     //tools
     api rootProject.ext.dependencies["timber"]
@@ -82,9 +83,5 @@ dependencies {
     //test
     testImplementation rootProject.ext.dependencies["junit"]
 
-    implementation 'com.android.support:multidex:1.0.2'
-
-    kapt rootProject.ext.dependencies["dagger2-compiler"]
-    kapt rootProject.ext.dependencies["dagger2-android-processor"]
-
+    implementation 'com.android.support:multidex:1.0.3'
 }

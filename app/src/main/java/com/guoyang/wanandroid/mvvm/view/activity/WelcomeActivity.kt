@@ -38,5 +38,6 @@ class WelcomeActivity : BaseActivity<ActivityWelcomeBinding>() {
 
     override fun initData() {
         NavigationUtil.toMainActivity()
+        finish()
     }
 }

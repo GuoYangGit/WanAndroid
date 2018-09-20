@@ -52,7 +52,7 @@ dependencies {
     api project(':commonsdk')
 
     if (!isBuildModule.toBoolean()) {
-        api project(':module-web')
-        api project(':module-wan')
+        implementation project(':module-web')
+        implementation project(':module-wan')
     }
 }
