@@ -39,11 +39,11 @@ class HomeViewModel @Inject constructor(private val remote: Repo) : BaseViewMode
         if (isRefresh) page = 0
         return remote.getHomeList(page)
                 .bindHttp()
-                .doOnSuccess {
+                .doOnSuccess { bean ->
                     page++
                     if (isRefresh) observableList.clear()
-                    it.data.datas.let {
-                        it.map {
+                    bean.data.datas.let { list ->
+                        list.map {
                             ArticlesItemModel(it)
                         }.let {
                             observableList.addAll(it)
@@ -56,11 +56,11 @@ class HomeViewModel @Inject constructor(private val remote: Repo) : BaseViewMode
     fun getBanner(): Single<BaseBean<List<BannerBean>>> {
         return remote.getBanner()
                 .bindHttp()
-                .doOnSuccess {
+                .doOnSuccess { bean ->
                     bannerImages.clear()
                     bannerTitles.clear()
                     bannerBean.clear()
-                    it.data.forEach {
+                    bean.data.forEach {
                         bannerBean.add(it)
                         bannerTitles.add(it.title)
                         bannerImages.add(it.imagePath)

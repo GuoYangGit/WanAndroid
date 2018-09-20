@@ -19,11 +19,11 @@ class SearchViewModel @Inject constructor(private val remote: Repo) : BaseViewMo
         if (isRefresh) page = 0
         return remote.getSearchList(page, searchMsg)
                 .bindHttp()
-                .doOnSuccess {
+                .doOnSuccess { bean ->
                     page++
                     if (isRefresh) observableList.clear()
-                    it.data.datas.let {
-                        it.map {
+                    bean.data.datas.let { list ->
+                        list.map {
                             ArticlesItemModel(it)
                         }.let {
                             observableList.addAll(it)

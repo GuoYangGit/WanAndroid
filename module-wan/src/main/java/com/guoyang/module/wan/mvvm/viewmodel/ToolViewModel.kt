@@ -41,16 +41,16 @@ class ToolViewModel @Inject constructor(private val remote: Repo) : BaseViewMode
                     BaseBean(HotAndWebBean(t1.data, t2.data), t1.errorCode, t1.errorMsg)
                 })
                 .bindHttp()
-                .doOnSuccess {
-                    it.let {
+                .doOnSuccess { baseBean ->
+                    baseBean.let { bean ->
                         observableWebUrl.clear()
                         observableHotSearch.clear()
-                        it.data.webUrlList.map {
+                        bean.data.webUrlList.map {
                             FlowItemViewModel(it.id, it.name, it.link)
                         }.let {
                             observableWebUrl.addAll(it)
                         }
-                        it.data.hotSearchList.map {
+                        bean.data.hotSearchList.map {
                             FlowItemViewModel(it.id, it.name, it.link)
                         }.let {
                             observableHotSearch.addAll(it)

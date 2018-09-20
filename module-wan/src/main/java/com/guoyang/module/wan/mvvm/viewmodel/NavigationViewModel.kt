@@ -34,19 +34,19 @@ class NavigationViewModel @Inject constructor(private val remote: Repo) : BaseVi
     fun loadData(): Single<BaseBean<List<NavigationList>>> {
         return remote.getNavigationList()
                 .bindHttp()
-                .doOnSuccess {
-                    it.data.map {
+                .doOnSuccess { bean ->
+                    bean.data.asSequence().map {
                         mTitleObservableList.add(NavigationItemTitleViewModel(it))
                         it.children
-                    }.map {
-                        it.map {
+                    }.map { list ->
+                        list.map {
                             FlowItemViewModel(it.id, it.name)
                         }.let {
                             val list: ObservableArrayList<FlowItemViewModel> = ObservableArrayList()
                             list.addAll(it)
                             mFlowRvObservableList.add(list)
                         }
-                    }
+                    }.toList()
                 }
     }
 }

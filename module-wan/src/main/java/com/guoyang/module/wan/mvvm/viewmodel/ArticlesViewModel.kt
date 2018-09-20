@@ -20,10 +20,10 @@ class ArticlesViewModel @Inject constructor(private val remote: Repo) : BaseView
         if (isRefresh) page = 0
         return remote.getArticlesList(page, id)
                 .bindHttp(500)
-                .doOnSuccess {
+                .doOnSuccess { bean ->
                     page++
                     if (isRefresh) observableList.clear()
-                    it.data.datas.let {
+                    bean.data.datas.let {
                         it.map {
                             ArticlesItemModel(it)
                         }.let {
