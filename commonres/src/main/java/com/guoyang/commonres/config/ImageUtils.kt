@@ -1,5 +1,6 @@
 package com.guoyang.commonres.config
 
+import android.content.Context
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.guoyang.easymvvm.base.BaseApplication
@@ -23,20 +24,17 @@ import jp.wasabeef.glide.transformations.CropCircleTransformation
  */
 
 object ImageUtils {
-    fun load(url: String?, imageView: ImageView, isAvatar: Boolean = false) {
-        if (!isAvatar) {
-            Glide.with(BaseApplication.instance())
-                    .load(url)
-                    .placeholder(android.R.color.white)
-                    .error(android.R.color.white)
-                    .into(imageView)
-        } else {
-            Glide.with(BaseApplication.instance())
-                    .load(url)
-                    .bitmapTransform(CropCircleTransformation(imageView.context))
-                    .placeholder(android.R.color.white)
-                    .error(android.R.color.white)
-                    .into(imageView)
-        }
+    fun load(context: Context?, url: String?, imageView: ImageView, isAvatar: Boolean = false) {
+        Glide.with(context ?: BaseApplication.instance())
+                .load(url)
+                .placeholder(android.R.color.white)
+                .error(android.R.color.white)
+                .run {
+                    if (isAvatar) {
+                        bitmapTransform(CropCircleTransformation(imageView.context))
+                    }
+                    this
+                }
+                .into(imageView)
     }
 }

@@ -6,10 +6,11 @@ import android.text.TextWatcher
 import android.view.View
 import android.view.animation.OvershootInterpolator
 import com.guoyang.commonsdk.utils.NavigationUtil
+import com.guoyang.commonsdk.utils.toastFail
 import com.guoyang.easymvvm.base.BaseActivity
 import com.guoyang.easymvvm.helper.annotation.PageStateType
+import com.guoyang.easymvvm.helper.extens.bindStatusOrLifeCycle
 import com.guoyang.easymvvm.helper.extens.set
-import com.guoyang.easymvvm.helper.extens.toastFail
 import com.guoyang.easymvvm.helper.listener.RefreshPresenter
 import com.guoyang.module.wan.R
 import com.guoyang.module.wan.databinding.WanActivitySearchBinding
@@ -92,6 +93,7 @@ class SearchActivity : BaseActivity<WanActivitySearchBinding>(), RefreshPresente
 
     private fun loadVMData(isRefresh: Boolean) {
         mViewModel.loadData(isRefresh, searchMsg)
+                .bindStatusOrLifeCycle(isRefresh, mViewModel, this)
                 .subscribe({}, {
                     toastFail(it)
                 })

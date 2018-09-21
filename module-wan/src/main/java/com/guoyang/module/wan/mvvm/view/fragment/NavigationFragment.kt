@@ -5,10 +5,10 @@ import android.databinding.ViewDataBinding
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.guoyang.easymvvm.base.BaseFragment
-import com.guoyang.easymvvm.helper.extens.toastFail
 import com.guoyang.module.wan.mvvm.viewmodel.NavigationViewModel
 
 import com.guoyang.commonres.view.adapter.BindingFlowAdapter
+import com.guoyang.commonsdk.utils.toastFail
 import com.guoyang.module.wan.R
 import com.guoyang.module.wan.databinding.WanFragmentNavigationBinding
 import com.guoyang.module.wan.databinding.WanItemNavigationFlowBinding

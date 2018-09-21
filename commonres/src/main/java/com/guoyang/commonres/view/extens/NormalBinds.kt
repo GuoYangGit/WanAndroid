@@ -37,7 +37,7 @@ import com.youth.banner.Transformer
 
 @BindingAdapter(value = ["url", "avatar"], requireAll = false)
 fun bindUrl(imageView: ImageView, url: String?, isAvatar: Boolean?) {
-    ImageUtils.load(url, imageView, isAvatar = isAvatar ?: false)
+    ImageUtils.load(imageView.context, url, imageView, isAvatar = isAvatar ?: false)
 }
 
 @BindingAdapter(value = ["status"])

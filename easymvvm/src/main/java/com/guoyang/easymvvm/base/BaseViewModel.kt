@@ -5,6 +5,7 @@ import android.arch.lifecycle.ViewModel
 import com.guoyang.easymvvm.helper.annotation.PageStateType
 import com.guoyang.easymvvm.helper.annotation.RefreshType
 import com.guoyang.easymvvm.helper.extens.set
+import timber.log.Timber
 
 /***
  *
@@ -32,5 +33,10 @@ abstract class BaseViewModel : ViewModel() {
     init {
         pageState.set(PageStateType.NORMAL)
         listState.set(RefreshType.NORMAL)
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        Timber.i("${javaClass.simpleName}:onCleared()")
     }
 }

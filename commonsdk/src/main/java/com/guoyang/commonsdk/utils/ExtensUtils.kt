@@ -1,9 +1,15 @@
-package com.guoyang.commonres.view.banner
+package com.guoyang.commonsdk.utils
 
 import android.content.Context
-import android.widget.ImageView
-import com.guoyang.commonres.config.ImageUtils
-import com.youth.banner.loader.ImageLoader
+import android.support.annotation.ColorRes
+import android.support.annotation.DimenRes
+import android.support.v4.content.ContextCompat
+import com.guoyang.easymvvm.BuildConfig
+import com.guoyang.easymvvm.helper.extens.toast
+import org.json.JSONException
+import java.net.ConnectException
+import java.net.SocketTimeoutException
+import java.net.UnknownHostException
 
 /***
  * You may think you know what the following code does.
@@ -25,12 +31,27 @@ import com.youth.banner.loader.ImageLoader
  *  ░ ░    ░░░ ░ ░ ░        ░ ░░ ░
  *           ░     ░ ░      ░  ░
  *
- * Created by guoyang on 2018/9/3.
+ * Created by guoyang on 2018/9/21.
  * github https://github.com/GuoYangGit
  * QQ:352391291
  */
-class GlideImageLoader : ImageLoader() {
-    override fun displayImage(context: Context, path: Any?, imageView: ImageView) {
-        ImageUtils.load(context,path.toString(), imageView)
+fun Context.toastFail(error: Throwable?) {
+    error?.let { throwable ->
+        if (BuildConfig.DEBUG) {
+            throwable.printStackTrace()
+        }
+        if (throwable is SocketTimeoutException) {
+            throwable.message?.let { toast("网络连接超时") }
+        } else if (throwable is UnknownHostException || throwable is ConnectException) {
+            throwable.message?.let { toast("网络未连接") }
+        } else if (throwable is JSONException) {
+            throwable.message?.let { toast("数据解析错误") }
+        } else {
+            throwable.message?.let { toast(it) }
+        }
     }
 }
+
+fun Context.getCompactColor(@ColorRes colorRes: Int): Int = ContextCompat.getColor(this, colorRes)
+
+fun Context.dpToPx(@DimenRes resID: Int): Int = this.resources.getDimensionPixelOffset(resID)

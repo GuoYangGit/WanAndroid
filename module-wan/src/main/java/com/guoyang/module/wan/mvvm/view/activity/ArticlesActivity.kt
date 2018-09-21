@@ -5,11 +5,11 @@ import android.view.View
 import android.view.animation.OvershootInterpolator
 import android.widget.TextView
 import com.guoyang.commonsdk.utils.NavigationUtil
+import com.guoyang.commonsdk.utils.toastFail
 import com.guoyang.easymvvm.base.BaseActivity
 import com.guoyang.easymvvm.helper.annotation.PageStateType
-import com.guoyang.easymvvm.helper.extens.bindLifeCycle
+import com.guoyang.easymvvm.helper.extens.bindStatusOrLifeCycle
 import com.guoyang.easymvvm.helper.extens.set
-import com.guoyang.easymvvm.helper.extens.toastFail
 import com.guoyang.easymvvm.helper.listener.RefreshPresenter
 import com.guoyang.module.wan.R
 import com.guoyang.module.wan.databinding.WanActivityArticlesBinding
@@ -69,7 +69,7 @@ class ArticlesActivity : BaseActivity<WanActivityArticlesBinding>(), RefreshPres
 
     private fun loadVMData(isRefresh: Boolean) {
         mViewModel.loadData(mId, isRefresh)
-                .bindLifeCycle(this)
+                .bindStatusOrLifeCycle(isRefresh, mViewModel, this)
                 .subscribe({}, {
                     toastFail(it)
                 })

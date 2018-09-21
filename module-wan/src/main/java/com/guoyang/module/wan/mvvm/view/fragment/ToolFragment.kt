@@ -2,11 +2,11 @@ package com.guoyang.module.wan.mvvm.view.fragment
 
 import android.content.Intent
 import com.guoyang.easymvvm.base.BaseFragment
-import com.guoyang.easymvvm.helper.extens.toastFail
 import com.guoyang.module.wan.mvvm.viewmodel.ToolViewModel
 
 import com.guoyang.commonres.view.adapter.BindingFlowAdapter
 import com.guoyang.commonsdk.utils.NavigationUtil
+import com.guoyang.commonsdk.utils.toastFail
 import com.guoyang.module.wan.R
 import com.guoyang.module.wan.databinding.WanFragmentToolBinding
 import com.guoyang.module.wan.mvvm.view.activity.SearchActivity

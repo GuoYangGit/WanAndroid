@@ -5,11 +5,12 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import android.view.animation.OvershootInterpolator
 import com.guoyang.commonsdk.utils.NavigationUtil
+import com.guoyang.commonsdk.utils.toastFail
 import com.guoyang.easymvvm.base.BaseFragment
 import com.guoyang.easymvvm.helper.annotation.PageStateType
 import com.guoyang.easymvvm.helper.extens.bindLifeCycle
+import com.guoyang.easymvvm.helper.extens.bindStatusOrLifeCycle
 import com.guoyang.easymvvm.helper.extens.set
-import com.guoyang.easymvvm.helper.extens.toastFail
 import com.guoyang.easymvvm.helper.listener.RefreshPresenter
 import com.guoyang.module.wan.R
 import com.guoyang.module.wan.databinding.WanFragmentHomeBinding
@@ -93,7 +94,7 @@ class HomeFragment : BaseFragment<WanFragmentHomeBinding>(), RefreshPresenter, I
 
     private fun loadVMData(isRefresh: Boolean) {
         mViewModel.loadData(isRefresh)
-                .bindLifeCycle(this)
+                .bindStatusOrLifeCycle(isRefresh, mViewModel, this)
                 .subscribe({}, {
                     context?.toastFail(it)
                 })

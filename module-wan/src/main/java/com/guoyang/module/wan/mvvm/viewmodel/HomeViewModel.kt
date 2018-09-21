@@ -3,7 +3,6 @@ package com.guoyang.module.wan.mvvm.viewmodel
 import android.databinding.ObservableArrayList
 import com.guoyang.easymvvm.base.BaseViewModel
 import com.guoyang.easymvvm.helper.extens.bindHttp
-import com.guoyang.easymvvm.helper.extens.bindStatus
 import com.guoyang.module.wan.mvvm.model.data.ArticleList
 import com.guoyang.module.wan.mvvm.model.data.BannerBean
 import com.guoyang.module.wan.mvvm.model.data.BaseBean
@@ -50,7 +49,6 @@ class HomeViewModel @Inject constructor(private val remote: Repo) : BaseViewMode
                         }
                     }
                 }
-                .bindStatus(isRefresh, pageState, listState)
     }
 
     fun getBanner(): Single<BaseBean<List<BannerBean>>> {

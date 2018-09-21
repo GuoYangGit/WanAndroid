@@ -3,7 +3,6 @@ package com.guoyang.module.wan.mvvm.viewmodel
 import android.databinding.ObservableArrayList
 import com.guoyang.easymvvm.base.BaseViewModel
 import com.guoyang.easymvvm.helper.extens.bindHttp
-import com.guoyang.easymvvm.helper.extens.bindStatus
 import com.guoyang.module.wan.mvvm.model.data.ArticleList
 import com.guoyang.module.wan.mvvm.model.data.BaseBean
 import com.guoyang.module.wan.mvvm.model.repository.Repo
@@ -30,6 +29,5 @@ class SearchViewModel @Inject constructor(private val remote: Repo) : BaseViewMo
                         }
                     }
                 }
-                .bindStatus(isRefresh, pageState, listState)
     }
 }

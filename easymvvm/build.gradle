@@ -48,7 +48,6 @@ dependencies {
     }
     api rootProject.ext.dependencies["annotations"]
 
-    api rootProject.ext.dependencies["toasty"]
     api rootProject.ext.dependencies["autosize"]
     //mvvm
     kapt rootProject.ext.dependencies["lifecycle-compiler"]

@@ -18,7 +18,7 @@ package com.guoyang.easymvvm.helper.network
  */
 
 interface IBaseBean {
+    val code: Int
+    val msg: String
     fun isOk(): Boolean
-
-    fun getMsg(): String
 }

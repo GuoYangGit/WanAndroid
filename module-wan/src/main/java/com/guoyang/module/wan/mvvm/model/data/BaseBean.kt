@@ -20,7 +20,10 @@ import com.guoyang.easymvvm.helper.network.IBaseBean
  */
 
 data class BaseBean<T> constructor(var data: T, var errorCode: Int, var errorMsg: String) : IBaseBean {
-    override fun isOk(): Boolean = errorCode == 0
+    override val code: Int
+        get() = errorCode
+    override val msg: String
+        get() = errorMsg
 
-    override fun getMsg(): String = errorMsg
+    override fun isOk(): Boolean = errorCode == 0
 }
