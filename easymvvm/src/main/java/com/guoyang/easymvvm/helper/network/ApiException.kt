@@ -19,4 +19,4 @@ import java.io.IOException
  * QQ:352391291
  */
 
-class ApiException(message: String) : IOException(message)
+open class ApiException(message: String) : IOException(message)

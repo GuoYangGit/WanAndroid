@@ -63,8 +63,8 @@ class MyFragment : BaseFragment<WanFragmentMyBinding>() {
 
     }
 
-    override fun onClick(v: View?) {
-        when (v?.id) {
+    override fun onClick(v: View) {
+        when (v.id) {
             R.id.floatBtn -> {
                 scorePopup.findViewById<SmileView>(R.id.smileView).setNum(60, 40)
                 scorePopup.showAtLocation(v, Gravity.CENTER, 0, 0)

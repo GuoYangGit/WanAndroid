@@ -61,6 +61,6 @@ abstract class BaseFragment<B : ViewDataBinding> : Fragment(), IView, ClickPrese
 
     override fun <T : ViewModel> createVM(modelClass: Class<T>): T = ViewModelProviders.of(this, factory.get()).get(modelClass)
 
-    override fun onClick(v: View?) {
+    override fun onClick(v: View) {
     }
 }

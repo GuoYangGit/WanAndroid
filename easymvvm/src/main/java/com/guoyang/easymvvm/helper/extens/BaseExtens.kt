@@ -11,6 +11,7 @@ import com.guoyang.easymvvm.base.BaseViewModel
 import com.guoyang.easymvvm.helper.annotation.PageStateType
 import com.guoyang.easymvvm.helper.annotation.RefreshType
 import com.guoyang.easymvvm.helper.network.ApiException
+import com.guoyang.easymvvm.helper.network.EmptyException
 import com.guoyang.easymvvm.helper.network.IBaseBean
 import com.uber.autodispose.AutoDispose
 import com.uber.autodispose.SingleSubscribeProxy
@@ -76,12 +77,21 @@ fun <T> Single<T>.bindStatus(isRefresh: Boolean = true, viewModel: BaseViewModel
                     }
                 }
                 .doOnError {
-                    if (pageState.get() != PageStateType.CONTENT)
-                        pageState.set(PageStateType.ERROR)
+                    if (pageState.get() != PageStateType.CONTENT) {
+                        if (it is EmptyException) {
+                            pageState.set(PageStateType.EMPTY)
+                        } else {
+                            pageState.set(PageStateType.ERROR)
+                        }
+                    }
                     if (isRefresh) {
                         listState.set(RefreshType.REFRESHFAIL)
                     } else {
-                        listState.set(RefreshType.LOADMOREFAIL)
+                        if (it is EmptyException) {
+                            listState.set(RefreshType.NOTMORE)
+                        } else {
+                            listState.set(RefreshType.LOADMOREFAIL)
+                        }
                     }
                 }
     }

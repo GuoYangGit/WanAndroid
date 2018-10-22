@@ -59,6 +59,7 @@ fun bindOnRefresh(smartRefreshLayout: SmartRefreshLayout, listListener: RefreshP
         }
 
         override fun onRefresh(refreshLayout: RefreshLayout) {
+            smartRefreshLayout.setNoMoreData(false)
             listListener?.loadData(true)
         }
 

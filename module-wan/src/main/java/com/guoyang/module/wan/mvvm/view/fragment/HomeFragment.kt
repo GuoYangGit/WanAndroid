@@ -106,7 +106,7 @@ class HomeFragment : BaseFragment<WanFragmentHomeBinding>(), RefreshPresenter, I
                     })
     }
 
-    override fun onClick(v: View?) {
+    override fun onClick(v: View) {
         when (v?.id) {
             R.id.search_iv -> {
                 val intent = Intent(mContext, SearchActivity::class.java)
