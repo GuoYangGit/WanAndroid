@@ -42,9 +42,9 @@ class NavigationViewModel @Inject constructor(private val remote: Repo) : BaseVi
                         list.map {
                             FlowItemViewModel(it.id, it.name)
                         }.let {
-                            val list: ObservableArrayList<FlowItemViewModel> = ObservableArrayList()
-                            list.addAll(it)
-                            mFlowRvObservableList.add(list)
+                            val data: ObservableArrayList<FlowItemViewModel> = ObservableArrayList()
+                            data.addAll(it)
+                            mFlowRvObservableList.add(data)
                         }
                     }.toList()
                 }

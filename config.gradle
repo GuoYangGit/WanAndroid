@@ -2,21 +2,21 @@ ext {
 
 
     android = [
-            compileSdkVersion: 27,
-            buildToolsVersion: "27.0.3",
+            compileSdkVersion: 28,
+            buildToolsVersion: "28.0.3",
             minSdkVersion    : 16,
-            targetSdkVersion : 27,
+            targetSdkVersion : 28,
             versionCode      : 1,
             versionName      : "1.0.1"
     ]
 
     version = [
-            androidSupportSdkVersion: "27.1.1",
+            androidSupportSdkVersion: "28.0.0",
             retrofitSdkVersion      : "2.4.0",
             dagger2SdkVersion       : "2.16",
             glideSdkVersion         : "3.7.0",
             lifeVersion             : "1.1.1",
-            kotlin_version          : "1.2.70",
+            kotlin_version          : "1.2.71",
     ]
 
     dependencies = [
@@ -32,7 +32,6 @@ ext {
             "recyclerview-v7"                   : "com.android.support:recyclerview-v7:${version["androidSupportSdkVersion"]}",
 
             //mvvm
-            "databinding-compiler"              : "com.android.databinding:compiler:3.1.4",
             "lifecycle-extensions"              : "android.arch.lifecycle:extensions:${version["lifeVersion"]}",
             "lifecycle-viewmodel"               : "android.arch.lifecycle:viewmodel:${version["lifeVersion"]}",
             "lifecycle-compiler"                : "android.arch.lifecycle:compiler:${version["lifeVersion"]}",
@@ -76,7 +75,7 @@ ext {
             "contourview"                       : "com.ocnyang:contourview:1.0.0",
             "circleimageview"                   : "de.hdodenhof:circleimageview:2.2.0",
             "EasyPopup"                         : "com.github.zyyoona7:EasyPopup:1.1.2",
-            "RecyclerViewBindingAdapter"        : "com.guoyanggit:RecyclerViewBindingAdapter:1.0.1",
+            "RecyclerViewBindingAdapter"        : "com.guoyanggit:RecyclerViewBindingAdapter:1.0.2",
             "smileview"                         : "com.guoyanggit:smileview:1.0.1",
 
             //tools

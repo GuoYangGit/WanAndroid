@@ -51,7 +51,7 @@ class ActivityLifecycleCallbacksImpl : Application.ActivityLifecycleCallbacks {
             } else {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     activity.setActionBar(activity.findViewById(R.id.toolbar))
-                    activity.actionBar.setDisplayShowTitleEnabled(false)
+                    activity.actionBar?.setDisplayShowTitleEnabled(false)
                 } else {
 
                 }

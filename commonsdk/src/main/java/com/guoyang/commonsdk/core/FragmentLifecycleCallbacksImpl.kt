@@ -30,8 +30,9 @@ import timber.log.Timber
  * QQ:352391291
  */
 class FragmentLifecycleCallbacksImpl : FragmentManager.FragmentLifecycleCallbacks() {
-    override fun onFragmentCreated(fm: FragmentManager?, f: Fragment?, savedInstanceState: Bundle?) {
+    override fun onFragmentCreated(fm: FragmentManager, f: Fragment, savedInstanceState: Bundle?) {
         super.onFragmentCreated(fm, f, savedInstanceState)
-        Timber.i("${f?.javaClass?.simpleName} onFragmentCreated")
+        Timber.i("${f.javaClass.simpleName} onFragmentCreated")
+
     }
 }
